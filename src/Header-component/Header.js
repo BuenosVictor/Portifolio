@@ -23,14 +23,14 @@ export function Header() {
                     <li className='m-2 font-bold'>
                         <a href="#">
                             <p className='inline'>Projetos</p>
-                            <img className='w-5 inline' src={ArrowDown} />
+                            <img className='w-5 inline' src={ArrowDown} alt='Flecha para baixo' />
                             <div className='contrastLine bg-linksDetail'></div>
                         </a>
                     </li>
                     <li className='m-2 font-bold'>
                         <a href="#">
                             <p className='inline'>Sobre mim</p>
-                            <img className='w-5 inline' src={ArrowDown} />
+                            <img className='w-5 inline' src={ArrowDown} alt='Flecha para baixo' />
                             <div className='contrastLine bg-linksDetail'></div>
                         </a>
 

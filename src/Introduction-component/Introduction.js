@@ -27,29 +27,29 @@ export function Introduction() {
                 <div className='flex justify-center items-center h-14 gap-7'>
 
                     <a href='https://github.com/BuenosVictor' target="_blank" rel="noopener noreferrer">
-                        <img src={Github} />
+                        <img  src={Github} alt='Github'/>
                         <div className='contrastLine bg-linksDetail'></div>
                     </a>
                     <a href='https://www.linkedin.com/in/victor-bueno-382054262/' target="_blank" rel="noopener noreferrer">
-                        <img src={Linkedin} />
+                        <img  src={Linkedin} alt='Linkedin'/>
                         <div className='contrastLine bg-linksDetail'></div>
                     </a>
                     <a href='https://1drv.ms/w/s!AtTcgXJuNhOUcPgyuOnSJbASfck?e=a2YDRp' target="_blank" rel="noopener noreferrer">
-                        <img src={Curriculo} />
+                        <img  src={Curriculo} alt='Curriculo'/>
                         <div className='contrastLine bg-linksDetail'></div>
                     </a>
                     <a href='mailto:buenos.victor2004@gmail.com' target="_blank" rel="noopener noreferrer">
-                        <img src={Gmail} />
+                        <img  src={Gmail} alt='Gmail'/>
                         <div className='contrastLine bg-linksDetail'></div>
                     </a>
                     <a href='https://wa.me/5511951694175' target="_blank" rel="noopener noreferrer">
-                        <img src={Whatsapp} />
+                        <img  src={Whatsapp} alt='Whatsapp'/>
                         <div className='contrastLine bg-linksDetail'></div>
                     </a>
 
                 </div>
             </main>
-            <img src={EuComALaila} className='w-4/12 mr-10' />
+            <img src={EuComALaila} className='w-4/12 mr-10' alt='Victor e Laila'/>
 
         </section>
     )
