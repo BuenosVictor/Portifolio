@@ -7,14 +7,13 @@
     padding: 0;
     border: border-box;
   }
-
+  
+  .toFit{
+    max-width: 90vw;
+    margin: auto;
+  }
 
 .contrastLine {
     width: 100%;
-    height: 0.234rem;
-}
-
-body{
-  max-width: 90vw;
-  margin: auto;
+    height: 0.1875rem;
 }
