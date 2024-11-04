@@ -19,7 +19,7 @@ export function ProjectsCarousel() {
 
                 <img className='cursor-pointer h-fit' src={ArrowLeft} alt="Seta Esquerda" />
 
-                <img className='m-auto bg-white w-3/4 rounded-3xl drop-shadow-2xl' src={WheatherProject} />
+                <img className='m-auto bg-white w-3/4 rounded-3xl drop-shadow-2xl' alt='Projeto de CLima' src={WheatherProject} />
                 <img className='cursor-pointer h-fit' src={ArrowRight} alt="Seta Direita" />
 
             </figure>
@@ -30,13 +30,13 @@ export function ProjectsCarousel() {
                 <h6 className='text-center text-2xl'>Tecnologias Ultilizadas:</h6>
 
                 <div className='w-fit gap-x-24 grid grid-cols-3 grid-rows-2 justify-items-center'>
-                    <img className='row-start-1 w-12' src={HTML} />
+                    <img className='row-start-1 w-12' alt='HTML' src={HTML} />
                     <p className='text-xl'>HTML</p>
 
-                    <img className='row-start-1 w-12' src={CSS} />
+                    <img className='row-start-1 w-12' alt='CSS' src={CSS} />
                     <p className='text-xl'>CSS</p>
 
-                    <img className='row-start-1 w-12' src={Javascript} />
+                    <img className='row-start-1 w-12' alt='Javascript' src={Javascript} />
                     <p id='SkillsAndAboutMe' className='text-xl'>Javascript</p>
 
                 </div>

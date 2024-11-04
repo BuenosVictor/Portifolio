@@ -15,35 +15,35 @@ export function SkillsAndAboutMe() {
             <article className='flex flex-col items-center gap-y-7 pt-16'>
                 <h4 className='text-4xl font-black'>Habilidades</h4>
                 <div className='w-fit gap-x-4 grid grid-cols-4 grid-rows-2 justify-items-center'>
-                    <img className='row-start-1 col-start-1' src={Javascript} />
+                    <img className='row-start-1 col-start-1' alt='Javascript'  src={Javascript} />
                     <p className='text-xl row-start-2 col-start-1'>Javascript</p>
 
-                    <img className='row-start-1 col-start-2' src={CSS} />
+                    <img className='row-start-1 col-start-2' alt='CSS'  src={CSS} />
                     <p className='text-xl row-start-2 col-start-2'>CSS</p>
 
-                    <img className='row-start-1 col-start-3' src={HTML} />
+                    <img className='row-start-1 col-start-3'  alt='HTML' src={HTML} />
                     <p className='text-xl row-start-2 col-start-3 '>HTML</p>
-                    <img className='row-start-1 col-start-4' src={Git} />
+                    <img className='row-start-1 col-start-4' alt='Git' src={Git} />
                     <p className='text-xl row-start-2 col-start-4 '>Git</p>
                 </div>
 
                 <h5 className='font-semibold text-xl'>Em desenvolvimento</h5>
                 <div className='w-fit gap-x-4 grid grid-cols-3 grid-rows-2 justify-items-center'>
 
-                    <img className='row-start-1 col-start-1' src={React} />
+                    <img className='row-start-1 col-start-1' alt='React'  src={React} />
                     <p className='text-xl row-start-2 col-start-1 '>React</p>
 
-                    <img className='row-start-1 col-start-2' src={Tailwind} />
-                    <p className='text-xl row-start-2 col-start-2 '>Tailwind</p>
+                    <img className='row-start-1 col-start-2' alt='Tailwind' src={Tailwind} />
+                    <p className='text-xl row-start-2 col-start-2 '  >Tailwind</p>
 
-                    <img className='row-start-1 col-start-3' src={Figma} />
-                    <p className='text-xl row-start-2 col-start-3 '>Figma</p>
+                    <img className='row-start-1 col-start-3'alt='Figma' src={Figma} />
+                    <p className='text-xl row-start-2 col-start-3 '  >Figma</p>
                 </div>
             </article>
             <article className='grid grid-cols-[30%_70%] grid-rows-[20%_80%] pt-14 toFit items-center justify-items-center'>
             <h4 className='text-4xl font-black row-start-1 col-start-1 col-end-3 text-center'>Sobre mim</h4>
        
-            <img className='w-fit h-5/6 'src={EuJuntoDaLaila} />
+            <img className='w-fit h-5/6 ' alt='EuJuntoDaLaila' src={EuJuntoDaLaila} />
             <div className='col-start-2 mx-14 p-9 bg-primaryL rounded-3xl'>
 
                 <p>    Desde 2022, estudo linguagens de programação com o intuito de transformar conceitos em experiências 
