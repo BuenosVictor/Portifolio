@@ -8,6 +8,10 @@
     border: border-box;
   }
   
+  html {
+	scroll-behavior: smooth;
+  }
+
   .toFit{
     max-width: 90vw;
     margin: auto;
@@ -16,4 +20,45 @@
 .contrastLine {
     width: 100%;
     height: 0.1875rem;
+}
+
+.dropdownmenu li {
+	float: left;
+	position: relative;
+}
+
+.dropdownmenu a {
+	color: black;
+	display: block;
+	font: bold;
+	padding: 10px 2vw;
+	text-align: center;
+	-webkit-transition: all .20s ease;
+	-moz-transition: all .20s ease;
+	-ms-transition: all .20s ease;
+	-o-transition: all .20s ease;
+	transition: all .20s ease;
+}
+.dropdownmenu li:hover a {
+	background: #FFC700;
+  color: white;
+}
+.submenu {
+	opacity: 0;
+	position: absolute;
+	visibility: hidden;
+	z-index: 1;
+	width: 100%;
+}
+
+li:hover ul.submenu {
+  color: white;
+	opacity: 1;
+	visibility: visible;
+}
+.submenu li {
+	width: 100%;
+}
+.submenu li a:hover {
+	background: #ecb900
 }

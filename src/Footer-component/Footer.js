@@ -7,7 +7,7 @@ import Whitewhatsapp from './Whitewhatsapp.svg'
 
 export function Footer() {
     return (
-        <footer className='bg-secondaryL text-white h-[60vh] grid grid-cols-2 grid-rows-[10%_90%] place-items-center relative'>
+        <footer id='Footer' className='bg-secondaryL text-white h-[60vh] grid grid-cols-2 grid-rows-[10%_90%] place-items-center relative'>
             <div className='bg-primaryL rounded-2xl p-6 row-span-1 col-span-2 -top-[10%] absolute' >
                 <p className='text-black text-center'>
                     Interessado em trabalhar juntos? Vamos

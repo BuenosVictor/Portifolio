@@ -1,15 +1,14 @@
 import '../index.css'
 import ArrowLeft from './Arrow-left.svg'
 import ArrowRight from './Arrow-right.svg'
-import Javascript from './Javascript.svg'
-import CSS from './CSS.svg'
 import HTML from './HTML.svg'
+import CSS from './CSS.svg'
+import Javascript from './Javascript.svg'
 import WheatherProject from './Weather.svg'
-import ZigzagArrow from './ZigzagArrow.svg'
 
 export function ProjectsCarousel() {
     return (
-        <section className='bg-primaryL grid grid-cols-[50%_50%] grid-rows-[10%_90%] h-fit pt-10 pb-10 place-items-center gap-y-7'>
+        <section id='ProjectsCarousel'className='bg-primaryL grid grid-cols-[50%_50%] grid-rows-[10%_90%] h-fit pt-10 pb-10 place-items-center gap-y-7'>
 
 
             <h4 className='row-span-1 col-span-3 text-4xl font-black'>Projetos</h4>
@@ -38,7 +37,7 @@ export function ProjectsCarousel() {
                     <p className='text-xl'>CSS</p>
 
                     <img className='row-start-1 w-12' src={Javascript} />
-                    <p className='text-xl'>Javascript</p>
+                    <p id='SkillsAndAboutMe' className='text-xl'>Javascript</p>
 
                 </div>
 

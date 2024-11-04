@@ -1,53 +1,41 @@
-import ArrowDown from './Arrow-down.svg'
 import '../index.css'
-
+import { Link } from 'react-router-dom';
 
 export function Header() {
 
 
-
-
-
-
     return (
-        <header className='flex justify-between items-center pt-6 toFit'>
+        <header className='p-2 rounded-md bg-white bg-opacity-50 backdrop-blur-sm fixed left-[5vw] w-full z-50 flex justify-between items-center top-6 toFit'>
 
             <div className='flex flex-col items-center'>
-                <h1 className='font-bold text-xl'>Victor de Souza</h1>
-                <h2 className='bg-primaryL text-white text-sm p-1 rounded-md font-bold'>Desenvolvedor Frontend</h2>
+                <Link to="/">
+                    <h1 className='font-bold text-xl'>Victor de Souza</h1>
+                    <h2 className='bg-primaryL text-white text-sm p-1 rounded-md font-bold'>Desenvolvedor Frontend</h2>
+                </Link>
             </div>
 
-            <nav className='flex flex-wrap'>
 
-                <ol className='flex px-5'>
-                    <li className='m-2 font-bold'>
-                        <a href="#">
-                            <p className='inline'>Projetos</p>
-                            <img className='w-5 inline' src={ArrowDown} alt='Flecha para baixo' />
-                            <div className='contrastLine bg-linksDetail'></div>
-                        </a>
+            <nav class="dropdownmenu">
+                <ul>
+                    <li>
+                        <Link to="/" className='rounded-md'>Home</Link>
                     </li>
-                    <li className='m-2 font-bold'>
-                        <a href="#">
-                            <p className='inline'>Sobre mim</p>
-                            <img className='w-5 inline' src={ArrowDown} alt='Flecha para baixo' />
-                            <div className='contrastLine bg-linksDetail'></div>
-                        </a>
-
+                    <li >
+                        <a className='rounded-t-md ' href="#SkillsAndAboutMe">Sobre Mim</a>
+                        <ul className="submenu">
+                            <li><Link to="Sobre mim" className=' rounded-b-md'>Detalhes</Link></li>
+                        </ul>
                     </li>
-                    <li className='m-2 font-bold'>
-                        <a href="#">
-                            Habilidades
-                        </a>
+                    <li>
+                        <a className='rounded-t-md' href="#ProjectsCarousel">Projetos</a>
+                        <ul className="submenu">
+                            <li> <Link to="Projetos" className='rounded-b-md'>Explorar</Link></li>
+                        </ul>
                     </li>
-                    <li className='m-2 font-bold'>
-                        <a href="#">
-                            Contatos
-                        </a>
+                    <li>
+                        <a className='rounded-md' href="#Footer">Contatos</a>
                     </li>
-
-                </ol>
-
+                </ul>
             </nav>
 
         </header>

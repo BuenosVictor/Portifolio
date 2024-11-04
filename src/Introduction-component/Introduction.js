@@ -8,9 +8,9 @@ import Whatsapp from './Whatsapp.svg'
 
 export function Introduction() {
     return (
-        <section className='flex items-center justify-between pt-5 pb-10 toFit'>
+        <section className='flex items-center justify-between pt-14 pb-10 toFit'>
             
-            <main className='max-w-lg'>
+            <main id='Introduction' className='max-w-lg'>
                 <h3 className='text-5xl mb-6 leading-snug'>Olá! Bem vindo ao meu <span className='border-4 rounded-md border-primaryL'>Portfólio</span></h3>
                 <p className='mb-6'>
                     Sou especializado em programação front-end e meu foco é criar interfaces
