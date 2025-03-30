@@ -17,12 +17,7 @@
     margin: auto;
   }
 
-.contrastLine {
-    width: 100%;
-    height: 0.1875rem;
-}
-
-.dropdownmenu li {
+  .dropdownmenu li {
 	float: left;
 	position: relative;
 }
@@ -41,7 +36,7 @@
 }
 .dropdownmenu li:hover a {
 	background: #FFC700;
-  color: white;
+  
 }
 .submenu {
 	opacity: 0;
@@ -52,7 +47,7 @@
 }
 
 li:hover ul.submenu {
-  color: white;
+  
 	opacity: 1;
 	visibility: visible;
 }
