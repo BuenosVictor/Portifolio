@@ -1,49 +1,42 @@
-import '../index.css'
-
-import Whitelinkedin from './Whitelinkedin.svg'
-import Whitegmail from './Whitegmail.svg'
-import Whitegithub from './Whitegithub.svg'
-import Whitewhatsapp from './Whitewhatsapp.svg'
+import '../index.css';
+import Whitelinkedin from './Whitelinkedin.svg';
+import Whitegmail from './Whitegmail.svg';
+import Whitegithub from './Whitegithub.svg';
+import Whitewhatsapp from './Whitewhatsapp.svg';
 
 export function Footer() {
-    return (
-        <footer id='Footer' className='bg-secondaryL text-white h-[60vh] grid grid-cols-2 grid-rows-[10%_90%] place-items-center relative'>
-            <div className='bg-primaryL rounded-2xl p-6 row-span-1 col-span-2 -top-[10%] absolute' >
-                <p className='text-black text-center'>
-                    Interessado em trabalhar juntos? Vamos
-                    marcar um horario para coversar!
-                </p>
+  return (
+    <footer id="Footer" className="bg-secondaryL text-white h-[60vh] grid grid-cols-2 grid-rows-[10%_90%] place-items-center relative">
+      <div className="bg-primaryL rounded-2xl p-6 row-span-1 col-span-2 -top-[10%] absolute">
+        <p className="text-black text-center">
+          Interessado em trabalhar juntos? Vamos marcar um horário para conversar!
+        </p>
+      </div>
 
-            </div>
-        <div className='rol-start-2 row-end-3 col-start-1 col-end-2 '>
-            <h6 className='bg-detail flex justify-center items-center self w-28 h-10 text-center rounded-lg mb-6'>Contatos</h6>
-            <ol className='flex flex-col gap-y-4'>
-                <li >
-                    <a className='flex' href='https://www.linkedin.com/in/victor-bueno-382054262/' target="_blank" rel="noopener noreferrer">
-                        <img alt='Foto do Linkedin' src={Whitelinkedin} />www.linkedin.com/in/victor-bueno
-                    </a>
-                </li>
-                <li >
-                    <a className='flex' href='mailto:buenos.victor2004@gmail.com' target="_blank" rel="noopener noreferrer">
-
-                        <img alt='Foto do Gmail' src={Whitegmail} />buenos.victor2004@gmail.com
-                    </a>
-                </li>
-
-                <li >
-                    <a className='flex' href='https://github.com/BuenosVictor' target="_blank" rel="noopener noreferrer">
-                        <img alt='Foto do Github' src={Whitegithub} />github.com/BuenosVictor
-                    </a>
-                </li>
-
-                <li >
-                    <a className='flex' href='https://wa.me/5511951694175' target="_blank" rel="noopener noreferrer">
-                        <img alt='Foto do Whatsapp' src={Whitewhatsapp} />Whatsapp:(11)95169-4175
-                    </a>
-                </li>
-            </ol>
-            </div>
-
-        </footer>
-    )
+      <div className="row-start-2 row-end-3 col-start-1 col-end-2">
+        <h6 className="bg-detail flex justify-center items-center w-28 h-10 text-center rounded-lg mb-6">
+          Contatos
+        </h6>
+        <ol className="flex flex-col">
+          {[
+            { img: Whitelinkedin, url: 'https://www.linkedin.com/in/victor-bueno-382054262/', text: 'www.linkedin.com/in/victor-bueno' },
+            { img: Whitegmail, url: 'mailto:buenos.victor2004@gmail.com', text: 'buenos.victor2004@gmail.com' },
+            { img: Whitegithub, url: 'https://github.com/BuenosVictor', text: 'github.com/BuenosVictor' },
+            { img: Whitewhatsapp, url: 'https://wa.me/5511951694175', text: 'Whatsapp:(11)95169-4175' }
+          ].map(({ img, url, text }, index) => (
+            <li key={index}>
+              <a
+                className="flex p-3 hover:bg-detail rounded-lg transition-transform duration-300 transform hover:scale-105"
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img alt={`Ícone de ${text}`} src={img} className="mr-2" />{text}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </footer>
+  );
 }
