@@ -20,7 +20,7 @@ export function Footer() {
         <ol className="flex flex-col">
           {[
             { img: Whitelinkedin, url: 'https://www.linkedin.com/in/victor-bueno-382054262/', text: 'www.linkedin.com/in/victor-bueno' },
-            { img: Whitegmail, url: 'mailto:buenos.victor2004@gmail.com', text: 'buenos.victor2004@gmail.com' },
+            { img: Whitegmail, url: 'https://mail.google.com/mail/?view=cm&to=buenos.victor2004@gmail.com', text: 'buenos.victor2004@gmail.com' },
             { img: Whitegithub, url: 'https://github.com/BuenosVictor', text: 'github.com/BuenosVictor' },
             { img: Whitewhatsapp, url: 'https://wa.me/5511951694175', text: 'Whatsapp:(11)95169-4175' }
           ].map(({ img, url, text }, index) => (

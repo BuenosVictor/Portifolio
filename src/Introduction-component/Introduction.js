@@ -62,7 +62,7 @@ export function Introduction() {
                      <img  src={Curriculo} alt='Curriculo'/>
                      <div className='contrastLine bg-linksDetail'></div>
                  </a>
-                 <a className='transform hover:scale-105 Buttons place-items-center p-1 cursor-pointer transition-all duration-300 hover:bg-[#bbbbbb9c] rounded-lg' href='mailto:buenos.victor2004@gmail.com' target="_blank" rel="noopener noreferrer">
+                 <a className='transform hover:scale-105 Buttons place-items-center p-1 cursor-pointer transition-all duration-300 hover:bg-[#bbbbbb9c] rounded-lg' href='https://mail.google.com/mail/?view=cm&to=buenos.victor2004@gmail.com' target="_blank" rel="noopener noreferrer">
                      <img  src={Gmail} alt='Gmail'/>
                      <div className='contrastLine bg-linksDetail'></div>
                  </a>
