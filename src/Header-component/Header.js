@@ -19,13 +19,13 @@ export function Header() {
                     <li className='transition duration-300'>
                         <a className='rounded-t-md ' href="#SkillsAndAboutMe">Sobre Mim</a>
                         <ul className="submenu transition duration-300">
-                            <li><Link to="Sobre mim" className='rounded-b-md'>Detalhes</Link></li>
+                            <li><Link to="/sobre-mim" className='rounded-b-md'>Detalhes</Link></li>
                         </ul>
                     </li>
                     <li className='transition duration-300'>
                         <a className='rounded-t-md' href="#ProjectsCarousel">Projetos</a>
                         <ul className="submenu transition duration-300">
-                            <li> <Link to="Projetos" className='rounded-b-md'>Explorar</Link></li>
+                            <li> <Link to="/projetos" className='rounded-b-md'>Explorar</Link></li>
                         </ul>
                     </li>
                     <li className='duration-300'>
