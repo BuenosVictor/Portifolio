@@ -17,16 +17,16 @@ export function SkillsAndAboutMe() {
   const [showDescriptionBox, setShowDescriptionBox] = useState(false);
 
   const skills = [
-    { name: 'Javascript', img: Javascript, desc: 'JavaScript é uma linguagem de programação que permite criar interatividade e funcionalidades dinâmicas.' },
-    { name: 'CSS', img: CSS, desc: 'CSS é uma linguagem de estilo que controla a apresentação visual de páginas web.' },
-    { name: 'HTML', img: HTML, desc: 'HTML é a linguagem de marcação utilizada para criar a estrutura de páginas na web.' },
-    { name: 'Git', img: Git, desc: 'Git é um sistema de controle de versão distribuído para gerenciar projetos de qualquer escala.' },
+    { name: 'HTML', img: HTML, desc: 'Foi com o HTML que tudo começou. Não é uma linguagem de programação, mas foi o primeiro contato que tive com desenvolvimento. Só de conseguir colocar algo na tela, já me senti empolgado para continuar aprendendo 🚀' },
+    { name: 'CSS', img: CSS, desc: 'CSS foi o que mais me deu trabalho no começo, mas também onde mais me interessei e evoluí. Foi nele que percebi que podia dar vida às ideias e realmente seguir como desenvolvedor frontend .Fiz um trabalho simples com low-code (o resultado não foi dos melhores 😅), mas ele me ajudou a melhorar no design, na comunicação com clientes e a entender melhor como os elementos da página se organizam.' },
+    { name: 'Javascript', img: Javascript, desc: 'O JavaScript foi onde tudo começou a fazer mais sentido. Foi com ele que ganhei confiança de verdade e percebi que era hora de levar a sério. Me joguei nos projetos com JS puro, focando em lógica e em entender bem o que estava fazendo, porque sabia que isso seria a base pra encarar qualquer framework depois' },
+    { name: 'Git', img: Git, desc: 'Aprendi Git no meio da correria, só porque precisava subir meus projetos. No começo foi meio bagunçado 😂, mas quando parei pra aprender de verdade, vi o quanto ele é essencial pra organização e controle dos meus códigos.' },
   ];
 
   const learning = [
-    { name: 'React', img: ReactLogo, desc: 'React é uma biblioteca JavaScript para criar interfaces de usuário.' },
-    { name: 'Tailwind', img: Tailwind, desc: 'Tailwind é um framework CSS para criar designs responsivos.' },
-    { name: 'Figma', img: Figma, desc: 'Figma é uma ferramenta de design colaborativo para criação de interfaces.' },
+    { name: 'React', img: ReactLogo, desc: 'Aprender React foi bem parecido com a experiência que tive com JavaScript, só que com alguns extras. No começo, fiquei meio perdido com a forma como os arquivos se comunicam, mas tudo começou a fazer sentido quando entendi os componentes. Ainda tô pegando o jeito, mas fico muito feliz de já ter criado meu primeiro projeto com React. Com mais prática, a confiança vai vir naturalmente, tenho certeza.💪' },
+    { name: 'Tailwind', img: Tailwind, desc: 'Tailwind foi uma das ferramentas mais simples e úteis que aprendi. Comecei por ser leve, rápido e organizado, e logo percebi como ele é flexível e o quanto ajudaria nos novos projetos. O melhor de tudo foi ver que minha base em CSS fez total diferença para entender tudo com facilidade.' },
+    { name: 'Figma', img: Figma, desc: 'Pra ser honesto, o Figma foi a ferramenta que menos explorei até agora 🖌️. Usei bastante no design deste portfólio e percebi como ele é valioso! Me ajudou a criar pontes com profissionais de UX/UI de forma online e a visualizar o site antes de partir pro código. Foi ótimo pra ajustar várias ideias que, na prática, talvez não funcionassem tão bem 🚧.' },
   ];
 
   const toggleSkill = (name) => {
@@ -48,43 +48,42 @@ export function SkillsAndAboutMe() {
 
   return (
     <section id="SkillsAndAboutMe" className="flex flex-col items-center pb-16 toFit">
-      {/* Habilidades */}
-      <article className="flex flex-col lg:flex-row justify-between items-center gap-7 pt-16 w-full max-w-6xl px-4">
-        <aside className={`flex flex-col items-center gap-y-7 w-full transition-all duration-500 ${expandedSkill ? 'lg:w-[35%]' : 'w-full'}`}>
+
+      <article className="flex flex-col lg:flex-row justify-between items-start gap-12 pt-16 w-full max-w-6xl">
+        <aside className={`flex flex-col items-center text-center gap-y-7 w-full transition-all duration-500 ${expandedSkill ? 'lg:w-[40%]' : 'w-full'}`}>
           <h4 className="text-4xl font-black">Habilidades</h4>
-          <ol className={`w-full grid grid-cols-2 md:grid-cols-4 gap-4 justify-items-center transition-all duration-500 ${expandedSkill ? '-translate-x-10' : 'translate-x-0'}`}>
+          <ol className={`w-full grid grid-cols-2 md:grid-cols-4 gap-4 justify-items-center transition-all duration-500 ${expandedSkill ? '-translate-x-6' : 'translate-x-0'}`}>
             {skills.map((skill) => (
               <li
                 key={skill.name}
-                className="duration-300 transform hover:scale-105 Buttons w-24 place-items-center p-1 cursor-pointer transition-all hover:bg-[#bbbbbb9c] rounded-lg"
+                className="flex flex-col items-center justify-center duration-300 transform hover:scale-105 Buttons w-24 p-1 cursor-pointer transition-all hover:bg-[#bbbbbb9c] rounded-lg"
                 onClick={() => toggleSkill(skill.name)}
               >
-                <img className="w-16 mx-auto" alt={skill.name} src={skill.img} />
-                <p className="text-xl text-center">{skill.name}</p>
+                <img className="w-16" alt={skill.name} src={skill.img} />
+                <p className="text-xl mt-1">{skill.name}</p>
               </li>
             ))}
           </ol>
 
           <h5 className="font-semibold text-xl mt-10">Em desenvolvimento</h5>
-          <ol className={`w-full grid grid-cols-2 md:grid-cols-3 gap-4 justify-items-center transition-all duration-500 ${expandedSkill ? '-translate-x-10' : 'translate-x-0'}`}>
+          <ol className={`w-full grid grid-cols-2 md:grid-cols-3 gap-4 justify-items-center transition-all duration-500 ${expandedSkill ? '-translate-x-6' : 'translate-x-0'}`}>
             {learning.map((skill) => (
               <li
                 key={skill.name}
-                className="transform hover:scale-105 Buttons w-24 place-items-center p-1 cursor-pointer transition-all duration-300 hover:bg-[#bbbbbb9c] rounded-lg"
+                className="flex flex-col items-center justify-center transform hover:scale-105 Buttons w-24 p-1 cursor-pointer transition-all duration-300 hover:bg-[#bbbbbb9c] rounded-lg"
                 onClick={() => toggleSkill(skill.name)}
               >
-                <img className="w-16 mx-auto" alt={skill.name} src={skill.img} />
-                <p className="text-xl text-center">{skill.name}</p>
+                <img className="w-16" alt={skill.name} src={skill.img} />
+                <p className="text-xl mt-1">{skill.name}</p>
               </li>
             ))}
           </ol>
         </aside>
 
-        {/* Descrição animada */}
         {expandedSkill && showDescriptionBox && (
           <div
             className={
-              `text-center p-5 mt-5 bg-white shadow-lg rounded-xl w-full lg:w-[45%] transform transition-all duration-700 ease-out
+              `text-center place-self-center p-5 mt-5 bg-white shadow-lg rounded-xl w-full lg:w-[45%] transform transition-all duration-700 ease-out
               ${showDescription ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`
             }
           >
@@ -105,7 +104,6 @@ export function SkillsAndAboutMe() {
         )}
       </article>
 
-      {/* Sobre mim */}
       <article className="pt-24 w-full max-w-4xl mx-auto px-6">
         <h4 className="text-4xl font-black text-center mb-12 text-gray-900">Sobre mim</h4>
 
