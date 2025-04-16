@@ -1,10 +1,10 @@
 import '../index.css'
-import WheatherProject from './Weather.svg'
-import PokemonProject from './Pokemon.svg'
-import OnePieceProject from './OnePiece.svg'
-import MemoryProject from './Memory.svg'
-import gitHub from './Github.svg'
-import ArrowForLinks from './ArrowForLinks.svg'
+import WheatherProject from './img/Weather.svg'
+import PokemonProject from './img/Pokemon.svg'
+import OnePieceProject from './img/OnePiece.svg'
+import MemoryProject from './img/Memory.svg'
+import gitHub from './img/Github.svg'
+import ArrowForLinks from './img/ArrowForLinks.svg'
 
 export function ProjectsPage() {
     return (

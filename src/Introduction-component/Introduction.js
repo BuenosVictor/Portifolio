@@ -1,10 +1,10 @@
 import '../index.css'
-import EuComALaila from './Eu-com-a-laila.png'
-import Github from './Github.svg'
-import Linkedin from './Linkedin.svg'
-import Curriculo from './Curriculo.svg'
-import Gmail from './Gmail.svg'
-import Whatsapp from './Whatsapp.svg'
+import EuComALaila from './img/Eu-com-a-laila.png'
+import Github from './img/Github.svg'
+import Linkedin from './img/Linkedin.svg'
+import Curriculo from './img/Curriculo.svg'
+import Gmail from './img/Gmail.svg'
+import Whatsapp from './img/Whatsapp.svg'
 import { useEffect, useState, useRef } from 'react';
 
 export function Introduction() {

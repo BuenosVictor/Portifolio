@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import ArrowLeft from './Arrow-left.svg';
-import ArrowRight from './Arrow-right.svg';
-import HTML from './HTML.svg';
-import CSS from './CSS.svg';
-import Javascript from './Javascript.svg';
-import WheatherProject from './Weather.svg';
-import PokemonProject from './Pokemon.svg';
-import OnePieceProject from './OnePiece.svg';
-import MemoryProject from './Memory.svg';
-import gitHub from './Github.svg';
-import ArrowForLinks from './ArrowForLinks.svg';
+import ArrowLeft from './img/Arrow-left.svg';
+import ArrowRight from './img/Arrow-right.svg';
+import HTML from './img/HTML.svg';
+import CSS from './img/CSS.svg';
+import Javascript from './img/Javascript.svg';
+import WheatherProject from './img/Weather.svg';
+import PokemonProject from './img/Pokemon.svg';
+import OnePieceProject from './img/OnePiece.svg';
+import MemoryProject from './img/Memory.svg';
+import gitHub from './img/Github.svg';
+import ArrowForLinks from './img/ArrowForLinks.svg';
 
 export function ProjectsCarousel() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -71,11 +71,15 @@ export function ProjectsCarousel() {
 
             <div className="flex flex-col lg:flex-row items-center justify-between gap-8 max-w-7xl mt-10 mx-auto">
                 <div className="flex-1 flex items-center justify-center gap-4 sm:gap-8 w-full">
-                    <button onClick={prevProject} className="hover:scale-110 transition">
+                    <button 
+                        onClick={prevProject} 
+                        className={`hover:scale-110 transition ${currentIndex === 0 ? 'opacity-30 cursor-default' : 'opacity-70 hover:opacity-100'}`}
+                        disabled={currentIndex === 0}
+                    >
                         <img
                             src={ArrowLeft}
                             alt="Anterior"
-                            className="w-8 sm:w-10 h-auto opacity-70 hover:opacity-100"
+                            className="w-8 sm:w-10 h-auto"
                         />
                     </button>
 
@@ -90,11 +94,15 @@ export function ProjectsCarousel() {
                         />
                     </div>
 
-                    <button onClick={nextProject} className="hover:scale-110 transition">
+                    <button 
+                        onClick={nextProject} 
+                        className={`hover:scale-110 transition ${currentIndex === projects.length - 1 ? 'opacity-30 cursor-default' : 'opacity-70 hover:opacity-100'}`}
+                        disabled={currentIndex === projects.length - 1}
+                    >
                         <img
                             src={ArrowRight}
                             alt="Próximo"
-                            className="w-8 sm:w-10 h-auto opacity-70 hover:opacity-100"
+                            className="w-8 sm:w-10 h-auto"
                         />
                     </button>
                 </div>
@@ -111,7 +119,7 @@ export function ProjectsCarousel() {
                             href={currentProject.githubLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 bg-primaryL text-white px-4 py-2 rounded-lg hover:bg-[#ecb900] transition border-2 border-black"
+                            className="flex items-center gap-2 bg-primaryL text-white px-4 py-2 rounded-lg hover:text-black transition border-2 border-black"
                         >
                             <img src={gitHub} alt="GitHub" className="w-6" />
                             Código
@@ -120,7 +128,7 @@ export function ProjectsCarousel() {
                             href={currentProject.accessLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 bg-primaryLs text-white px-4 py-2 rounded-lg hover:bg-[#ecb900] transition border-2 border-black"
+                            className="flex items-center gap-2 bg-primaryL text-white px-4 py-2 rounded-lg hover:text-black transition border-2 border-black"
                         >
                             <img src={ArrowForLinks} alt="Acessar" className="w-6" />
                             Acessar
@@ -133,13 +141,14 @@ export function ProjectsCarousel() {
                 <h4 className="text-xl sm:text-2xl font-semibold mb-4">Tecnologias Utilizadas:</h4>
                 <div className="flex justify-center gap-6 flex-wrap">
                     {[HTML, CSS, Javascript].map((tech, index) => (
-                        <div
+                        <a
                             key={index}
-                            className="flex flex-col items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-xl hover:bg-[#ecb900] transition cursor-pointer"
+                            className="flex flex-col items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-xl hover:bg-[#ecb900] transition cursor-pointer p-4"
+                            href="#SkillsAndAboutMe"
                         >
                             <img src={tech} alt={`Tecnologia ${index}`} className="w-10" />
                             <p className="text-xs sm:text-sm mt-1">{['HTML', 'CSS', 'JavaScript'][index]}</p>
-                        </div>
+                        </a>
                     ))}
                 </div>
             </div>

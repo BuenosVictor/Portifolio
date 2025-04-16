@@ -1,5 +1,5 @@
 import '../index.css'
-import EuComALaila from './Eu-com-a-laila.png'
+import EuComALaila from './img/Eu-com-a-laila.png'
 
 export function PageAboutMe() {
     return (

@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import '../index.css';
 
-import EuJuntoDaLaila from './Eu-com-a-laila.png';
+import EuJuntoDaLaila from './img/Eu-com-a-laila.png';
 
-import HTML from './HTML.svg';
-import CSS from './CSS.svg';
-import Javascript from './Javascript.svg';
-import Git from './GIT.svg';
-import ReactLogo from './React.svg';
-import Tailwind from './Tailwind.svg';
-import Figma from './Figma.svg';
+import HTML from './img/HTML.svg';
+import CSS from './img/CSS.svg';
+import Javascript from './img/Javascript.svg';
+import Git from './img/GIT.svg';
+import ReactLogo from './img/React.svg';
+import Tailwind from './img/Tailwind.svg';
+import Figma from './img/Figma.svg';
 
 export function SkillsAndAboutMe() {
   const [expandedSkill, setExpandedSkill] = useState(null);

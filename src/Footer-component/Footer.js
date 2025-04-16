@@ -1,8 +1,8 @@
 import '../index.css';
-import Whitelinkedin from './Whitelinkedin.svg';
-import Whitegmail from './Whitegmail.svg';
-import Whitegithub from './Whitegithub.svg';
-import Whitewhatsapp from './Whitewhatsapp.svg';
+import Whitelinkedin from './img/Whitelinkedin.svg';
+import Whitegmail from './img/Whitegmail.svg';
+import Whitegithub from './img/Whitegithub.svg';
+import Whitewhatsapp from './img/Whitewhatsapp.svg';
 
 export function Footer() {
   return (
