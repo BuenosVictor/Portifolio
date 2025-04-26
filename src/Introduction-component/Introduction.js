@@ -31,12 +31,12 @@ export function Introduction() {
     }, []);
 
     return (
-        <section className='flex flex-col-reverse lg:flex-row items-center justify-center mt-14 md:mt-8 px-6 mb-8 md:mb-0 md:px-12 lg:px-20 gap-0 lg:gap-20 min-h-[90vh]'>
-            <main id='Introduction' className='max-w-2xl text-center lg:text-left' ref={textRef}>
+        <section className='flex flex-col-reverse lg:flex-row items-center justify-between toFit h-[h-[100vh] md:h-[90vh] pb-8 pt-16 md:pt-14 px-6 md:px-12 lg:px-20 '>
+            <main id='Introduction' className='w-full md:w-2/5 text-center lg:text-left' ref={textRef}>
                 <h3 className={`text-4xl md:text-5xl font-semibold mb-3 leading-[1.3] md:leading-[1.6] transition-transform duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
                     Olá! Bem vindo ao meu <span className='border-4 rounded-md border-primaryL transition duration-300 hover:bg-primaryL hover:text-white'>Portfólio</span>
                 </h3>
-                <p className={`text-gray-700 text-base md:text-base mb-6 transition-transform duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
+                <p className={`text-gray-700 text-medium md:text-xl mb-6 transition-transform duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
                     Sou especializado em programação front-end e meu foco é criar interfaces
                     intuitivas e tornar ideias em uma realidade online. Utilizo{' '}
                     <a className='border-b-2 rounded border-HTML transition duration-300 hover:bg-HTML hover:text-white hover:cursor-pointer' href="#SkillsAndAboutMe">HTML</a>,{' '}
@@ -67,7 +67,7 @@ export function Introduction() {
             </main>
 
             <div className='flex justify-center'>
-                <img src={EuComALaila} className='w-8/12 md:w-96 lg:w-10/12 ' alt='Victor e Laila' />
+                <img src={EuComALaila} className='w-4/5' alt='Victor e Laila' />
             </div>
         </section>
     );
