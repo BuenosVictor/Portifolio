@@ -67,59 +67,47 @@ export function ProjectsCarousel() {
 
     return (
         <section className="bg-primaryL text-black border-y-2 border-black py-6 px-4 sm:px-6 lg:px-10">
-            <h2 className="text-3xl sm:text-4xl font-black text-center ">Projetos</h2>
+            <h2 className="text-3xl sm:text-4xl font-black text-center">Projetos</h2>
 
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-8 max-w-7xl mt-10 mx-auto">
-                <div className="flex-1 flex items-center justify-center gap-4 sm:gap-8 w-full">
-                    <button 
-                        onClick={prevProject} 
-                        className={`hover:scale-110 transition ${currentIndex === 0 ? 'opacity-30 cursor-default' : 'opacity-70 hover:opacity-100'}`}
-                        disabled={currentIndex === 0}
-                    >
-                        <img
-                            src={ArrowLeft}
-                            alt="Anterior"
-                            className="w-8 sm:w-10 h-auto"
-                        />
-                    </button>
+            {/* Área principal */}
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-5 max-w-7xl mt-6 mx-auto">
+                {/* Imagem e Botões */}
+                <div className="flex flex-col sm:flex-row lg:flex-col items-center justify-center gap-6 w-full lg:w-auto">
+                    <div className="flex items-center gap-4 sm:gap-8">
+                        <button 
+                            onClick={prevProject}
+                            className={`hover:scale-110 transition ${currentIndex === 0 ? 'opacity-30 cursor-default' : 'opacity-70 hover:opacity-100'}`}
+                            disabled={currentIndex === 0}
+                        >
+                            <img src={ArrowLeft} alt="Anterior" className="w-8 sm:w-10 h-auto" />
+                        </button>
 
-                    <div
-                        className={`transition-all duration-500 w-48 sm:w-64 md:w-72 h-auto max-h-[40vh] ${animate ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
-                            }`}
-                    >
-                        <img
-                            src={currentProject.image}
-                            alt={`Projeto ${currentIndex + 1}`}
-                            className="w-full h-auto rounded-3xl bg-white p-4 shadow-xl"
-                        />
+                        <div className={`transition-all duration-500 w-48 sm:w-64 md:w-72 h-auto max-h-[40vh] ${animate ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
+                            <img src={currentProject.image} alt={`Projeto ${currentIndex + 1}`} className="w-full h-auto rounded-3xl bg-white p-4 shadow-xl" />
+                        </div>
+
+                        <button 
+                            onClick={nextProject}
+                            className={`hover:scale-110 transition ${currentIndex === projects.length - 1 ? 'opacity-30 cursor-default' : 'opacity-70 hover:opacity-100'}`}
+                            disabled={currentIndex === projects.length - 1}
+                        >
+                            <img src={ArrowRight} alt="Próximo" className="w-8 sm:w-10 h-auto" />
+                        </button>
                     </div>
-
-                    <button 
-                        onClick={nextProject} 
-                        className={`hover:scale-110 transition ${currentIndex === projects.length - 1 ? 'opacity-30 cursor-default' : 'opacity-70 hover:opacity-100'}`}
-                        disabled={currentIndex === projects.length - 1}
-                    >
-                        <img
-                            src={ArrowRight}
-                            alt="Próximo"
-                            className="w-8 sm:w-10 h-auto"
-                        />
-                    </button>
                 </div>
 
-                <div
-                    className={`flex-1 flex flex-col place-content-center transition-all duration-500 max-h-56 text-center lg:text-left ${animate ? 'opacity-0 translate-x-[-20px]' : 'opacity-100 translate-x-0'
-                        }`}
-                >
+                {/* Texto */}
+                <div className={`flex-1 flex flex-col items-center lg:items-start text-center lg:text-left transition-all duration-500 max-h-[24rem] ${animate ? 'opacity-0 translate-x-[-20px]' : 'opacity-100 translate-x-0'}`}>
                     <h3 className="text-2xl sm:text-3xl font-bold mb-4">{title}</h3>
                     <p className="text-base sm:text-lg">{description}</p>
 
-                    <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center lg:justify-start">
+                    {/* Botões de links */}
+                    <div className="flex sm:flex-row gap-4 mt-4 justify-center lg:justify-start w-full sm:w-auto">
                         <a
                             href={currentProject.githubLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 bg-primaryL text-white px-4 py-2 rounded-lg hover:text-black transition border-2 border-black"
+                            className="flex items-center justify-center sm:justify-start gap-2 bg-primaryL text-white px-4 py-2 rounded-lg hover:text-black transition border-2 border-black"
                         >
                             <img src={gitHub} alt="GitHub" className="w-6" />
                             Código
@@ -128,7 +116,7 @@ export function ProjectsCarousel() {
                             href={currentProject.accessLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 bg-primaryL text-white px-4 py-2 rounded-lg hover:text-black transition border-2 border-black"
+                            className="flex items-center justify-center sm:justify-start gap-2 bg-primaryL text-white px-4 py-2 rounded-lg hover:text-black transition border-2 border-black"
                         >
                             <img src={ArrowForLinks} alt="Acessar" className="w-6" />
                             Acessar
@@ -137,7 +125,8 @@ export function ProjectsCarousel() {
                 </div>
             </div>
 
-            <div className="mt-12 text-center">
+            {/* Tecnologias */}
+            <div className="mt-5 text-center">
                 <h4 className="text-xl sm:text-2xl font-semibold mb-4">Tecnologias Utilizadas:</h4>
                 <div className="flex justify-center gap-6 flex-wrap">
                     {[HTML, CSS, Javascript].map((tech, index) => (
