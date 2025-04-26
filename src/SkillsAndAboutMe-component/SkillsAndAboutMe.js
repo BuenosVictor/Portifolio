@@ -49,14 +49,14 @@ export function SkillsAndAboutMe() {
   return (
     <section id="SkillsAndAboutMe" className="flex flex-col items-center pb-16 toFit">
 
-      <article className="flex flex-col lg:flex-row justify-between items-start gap-12 pt-16 w-full max-w-6xl">
+      <article className="flex flex-col lg:flex-row  justify-between items-start gap-12 pt-16 w-full max-w-6xl">
         <aside className={`flex flex-col items-center text-center gap-y-7 w-full transition-all duration-500 ${expandedSkill ? 'lg:w-[40%]' : 'w-full'}`}>
           <h4 className="text-4xl font-black">Habilidades</h4>
-          <ol className={`w-full grid grid-cols-2 md:grid-cols-4 gap-4 justify-items-center transition-all duration-500 ${expandedSkill ? '-translate-x-6' : 'translate-x-0'}`}>
+          <ol className={`w-full grid grid-cols-2 md:grid-cols-4 gap-4 justify-items-center transition-all duration-500 ${expandedSkill ? '-translate-x-0 md:-translate-x-6' : 'translate-x-0'}`}>
             {skills.map((skill) => (
               <li
                 key={skill.name}
-                className="flex flex-col items-center justify-center duration-300 transform hover:scale-105 Buttons w-24 p-1 cursor-pointer transition-all hover:bg-[#bbbbbb9c] rounded-lg"
+                className="flex bg-white/90 shadow-xl flex-col items-center justify-center transform hover:scale-105 Buttons w-20 md:w-24 p-4 cursor-pointer transition-all duration-300 hover:bg-transparent lg:hover:bg-[#bbbbbb9c] rounded-lg"
                 onClick={() => toggleSkill(skill.name)}
               >
                 <img className="w-16" alt={skill.name} src={skill.img} />
@@ -66,11 +66,11 @@ export function SkillsAndAboutMe() {
           </ol>
 
           <h5 className="font-semibold text-xl mt-10">Em desenvolvimento</h5>
-          <ol className={`w-full grid grid-cols-2 md:grid-cols-3 gap-4 justify-items-center transition-all duration-500 ${expandedSkill ? '-translate-x-6' : 'translate-x-0'}`}>
+          <ol className={`w-full grid grid-cols-2 md:grid-cols-3 gap-4 justify-items-center transition-all duration-500 ${expandedSkill ? '-translate-x-0 md:-translate-x-6' : 'translate-x-0'}`}>
             {learning.map((skill) => (
               <li
                 key={skill.name}
-                className="flex flex-col items-center justify-center transform hover:scale-105 Buttons w-24 p-1 cursor-pointer transition-all duration-300 hover:bg-[#bbbbbb9c] rounded-lg"
+                className="flex bg-white/90 shadow-xl flex-col items-center justify-center transform hover:scale-105 Buttons w-20 md:w-24 p-4 cursor-pointer transition-all duration-300 hover:bg-transparent lg:hover:bg-[#bbbbbb9c] rounded-lg"
                 onClick={() => toggleSkill(skill.name)}
               >
                 <img className="w-16" alt={skill.name} src={skill.img} />
@@ -83,7 +83,7 @@ export function SkillsAndAboutMe() {
         {expandedSkill && showDescriptionBox && (
           <div
             className={
-              `text-center place-self-center p-5 mt-5 bg-white shadow-lg rounded-xl w-full lg:w-[45%] transform transition-all duration-700 ease-out
+              ` text-center place-self-center p-5 mt-5 bg-white shadow-lg rounded-xl w-full lg:w-[45%] transform transition-all duration-700 ease-out
               ${showDescription ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`
             }
           >
