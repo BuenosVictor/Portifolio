@@ -36,7 +36,7 @@ export function ProjectsPage() {
                     <div className='flex flex-col flex-1 items-center lg:items-start text-center lg:text-left gap-6 max-w-2xl'>
                         <div className='w-full'>
                             <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>PrevisãoPro</h3>
-                            <p className='text-gray-600 md:text-lg'>Receba informações meteorológicas em tempo real, como temperatura, vento e umidade, ao digitar o nome de qualquer cidade.</p>
+                            <p className='text-gray-600 md:text-lg'>O site utiliza a Weather API para fornecer informações precisas sobre o clima em países ao redor do mundo. Desenvolvido com o objetivo de aprofundar meus conhecimentos em consumo de APIs, ele exibe dados como temperatura, umidade, previsão e outras informações úteis sobre o tempo de forma clara e acessível.</p>
                         </div>
                         <div className='w-full flex flex-col items-center lg:items-start gap-6'>
                             <div className='flex flex-wrap justify-center gap-4'>
@@ -75,7 +75,7 @@ export function ProjectsPage() {
                     <div className='flex flex-col flex-1 items-center lg:items-start text-center lg:text-left gap-6 max-w-2xl'>
                         <div className='w-full'>
                             <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>MemoryQuest</h3>
-                            <p className='text-gray-600 md:text-lg'>Treine sua memória encontrando pares de personagens de animes populares. Cada jogada conta para o seu recorde final!</p>
+                            <p className='text-gray-600 md:text-lg'>Este projeto foi um grande desafio, pois exigia uma boa organização do código em CSS, HTML e JavaScript. Focado em melhorar minhas habilidades em JavaScript e lógica de programação, também foi quando recebi o maior apoio da minha mentoria. A orientação de um desenvolvedor sênior, que questionava e validava minhas escolhas de implementação, foi fundamental para o meu crescimento.</p>
                         </div>
                         <div className='w-full flex flex-col items-center lg:items-start gap-6'>
                             <div className='flex flex-wrap justify-center gap-4'>
@@ -117,7 +117,7 @@ export function ProjectsPage() {
                     <div className='flex flex-col flex-1 items-center lg:items-start text-center lg:text-left gap-6 max-w-2xl'>
                         <div className='w-full'>
                             <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>DevPiece</h3>
-                            <p className='text-gray-600 md:text-lg'>Explore o mundo de One Piece com uma enciclopédia interativa que exibe informações sobre seus personagens favoritos da série.</p>
+                            <p className='text-gray-600 md:text-lg'>Este projeto foi desenvolvido durante um evento com os irmãos Ricardo e Roberto, fundadores do canal DevEmDobro. Criei uma aplicação inspirada no anime One Piece, usando animações em CSS e funcionalidades simples em JavaScript. Foi meu primeiro contato com uma comunidade de programadores, o que foi essencial para resolver problemas neste projeto e em outros futuros, além de fortalecer meu interesse pela área.</p>
                         </div>
                         <div className='w-full flex flex-col items-center lg:items-start gap-6'>
                             <div className='flex flex-wrap justify-center gap-4'>
@@ -159,7 +159,7 @@ export function ProjectsPage() {
                     <div className='flex flex-col flex-1 items-center lg:items-start text-center lg:text-left gap-6 max-w-2xl'>
                         <div className='w-full'>
                             <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>PokéStats</h3>
-                            <p className='text-gray-600 md:text-lg'>Descubra os dados dos seus Pokémons favoritos com este buscador interativo que consome a PokéAPI.</p>
+                            <p className='text-gray-600 md:text-lg'>O projeto começou como um desafio para melhorar minhas habilidades em CSS e iniciar o aprendizado de lógica de programação, mas, com o tempo, pretendo incluir funcionalidades como "busca de Pokémons", com informações detalhadas sobre descrições, fraquezas e habitats.</p>
                         </div>
                         <div className='w-full flex flex-col items-center lg:items-start gap-6'>
                             <div className='flex flex-wrap justify-center gap-4'>

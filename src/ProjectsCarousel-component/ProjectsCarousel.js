@@ -18,25 +18,25 @@ export function ProjectsCarousel() {
     const projects = [
         {
             image: WheatherProject,
-            text: 'PrevisãoPro: O site utiliza a Weather API para fornecer informações precisas sobre o clima em países ao redor do mundo. Desenvolvido com o objetivo de aprofundar meus conhecimentos em consumo de APIs, ele exibe dados como temperatura, umidade, previsão e outras informações úteis sobre o tempo de forma clara e acessível.',
+            text: 'PrevisãoPro: O site utiliza a Weather API para trazer informações do clima de forma prática e objetiva. Foi um projeto focado em aprofundar meus conhecimentos no consumo de APIs e exibir dados como temperatura e previsão do tempo de maneira clara.',
             githubLink: 'https://github.com/BuenosVictor/App-Clima',
             accessLink: 'https://app-clima-victor.netlify.app/',
         },
         {
             image: PokemonProject,
-            text: 'PokeInfo: O projeto começou como um desafio para melhorar minhas habilidades em CSS e iniciar o aprendizado de lógica de programação, mas, com o tempo, pretendo incluir funcionalidades como "busca de Pokémons", com informações detalhadas sobre descrições, fraquezas e habitats.',
+            text: 'PokeInfo: Nasceu como um desafio para evoluir minhas habilidades em CSS e dar os primeiros passos na lógica de programação. A ideia é expandi-lo futuramente com uma busca por Pokémons e informações detalhadas de cada um.',
             githubLink: 'https://github.com/BuenosVictor/Pokedex',
             accessLink: 'https://victor-pokedex.netlify.app/',
         },
         {
             image: OnePieceProject,
-            text: 'DevPiece: Este projeto foi desenvolvido durante um evento com os irmãos Ricardo e Roberto, fundadores do canal DevEmDobro. Criei uma aplicação inspirada no anime One Piece, usando animações em CSS e funcionalidades simples em JavaScript. Foi meu primeiro contato com uma comunidade de programadores, o que foi essencial para resolver problemas neste projeto e em outros futuros, além de fortalecer meu interesse pela área.',
+            text: 'DevPiece: Foi criado durante um evento com o pessoal do canal DevEmDobro. Inspirado no anime One Piece, usei animações em CSS e funcionalidades básicas de JavaScript. Além de desenvolver o projeto, essa experiência foi essencial para me conectar com a comunidade dev.',
             githubLink: 'https://github.com/BuenosVictor/One-Piece',
             accessLink: 'https://one-piece-layout.netlify.app/',
         },
         {
             image: MemoryProject,
-            text: 'MemoryQuest: Este projeto foi um grande desafio, pois exigia uma boa organização do código em CSS, HTML e JavaScript. Focado em melhorar minhas habilidades em JavaScript e lógica de programação, também foi quando recebi o maior apoio da minha mentoria. A orientação de um desenvolvedor sênior, que questionava e validava minhas escolhas de implementação, foi fundamental para o meu crescimento.',
+            text: 'MemoryQuest: Foi um projeto desafiador, onde pude aprimorar minhas habilidades de organização de código e lógica em JavaScript. Com o apoio de um mentor experiente, consegui evoluir bastante na forma como estruturo meus projetos.',
             githubLink: 'https://github.com/BuenosVictor/Jogo-da-Memoria',
             accessLink: 'https://jogo-da-memoria-victor.netlify.app/',
         },
