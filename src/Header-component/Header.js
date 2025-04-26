@@ -13,7 +13,7 @@ export function Header() {
     };
 
     return (
-        <header className="p-2 rounded-md bg-white bg-opacity-50 backdrop-blur-sm fixed left-0 w-full z-50 flex flex-col md:flex-row md:justify-between md:items-center top-0 md:top-6 md:left-[5vw] toFit transition duration-300">
+        <header className="p-2 rounded-md bg-white bg-opacity-50 backdrop-blur-sm fixed left-[5vw] w-full z-50 flex flex-col md:flex-row md:justify-between md:items-center top-0 md:top-6 toFit transition duration-300">
             {/* Topo com título e botão no mobile */}
             <div className="flex justify-between items-center w-full px-4 md:px-0">
                 <div className="flex flex-col items-start md:items-center text-left md:text-center p-1 duration-300 rounded-md border-2 border-transparent hover:border-black">
