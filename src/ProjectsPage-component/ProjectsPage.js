@@ -1,20 +1,37 @@
 import '../index.css'
-import WheatherProject from './img/Weather.svg'
+import { useState } from 'react'
+import WeatherProject from './img/Weather.svg'
+import WeatherGif from './img/Weather.gif'
 import PokemonProject from './img/Pokemon.svg'
+import PokemonGif from './img/pokedex.gif'
 import OnePieceProject from './img/OnePiece.svg'
+import OnePieceGif from './img/OnePiece.gif'
 import MemoryProject from './img/Memory.svg'
+import MemoryGif from './img/Memory.gif'
 import gitHub from './img/Github.svg'
 import ArrowForLinks from './img/ArrowForLinks.svg'
 
 export function ProjectsPage() {
+    const [hoverWeather, setHoverWeather] = useState(false)
+    const [hoverMemory, setHoverMemory] = useState(false)
+    const [hoverOnePiece, setHoverOnePiece] = useState(false)
+    const [hoverPokemon, setHoverPokemon] = useState(false)
+
     return (
         <section className='pt-28 toFit flex flex-col gap-16 pb-24 px-4 md:px-8'>
 
-            {/* 1º Projeto */}
+    
             <div className='bg-white rounded-3xl drop-shadow-2xl transition duration-300 hover:scale-[1.015] hover:shadow-2xl border-2 border-gray-100 overflow-hidden'>
-                <article className='flex flex-col lg:flex-row py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'>
+            <article className='flex flex-col lg:flex-row-reverse py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'
+                    onMouseEnter={() => setHoverWeather(true)}
+                    onMouseLeave={() => setHoverWeather(false)}>
                     <div className='flex justify-center lg:justify-start lg:w-auto'>
-                        <img className='w-40 h-40 md:w-48 md:h-48 object-contain' alt='PrevisãoPro' src={WheatherProject} />
+                      
+                        <img
+                            className={`w-40 h-40 md:w-48 md:h-48 object-contain transition duration-300 ${hoverWeather ? "opacity-100 scale-150" : "opacity-100 scale-100"}`}
+                            alt='PrevisãoPro'
+                            src={hoverWeather ? WeatherGif : WeatherProject}
+                        />
                     </div>
                     <div className='flex flex-col flex-1 items-center lg:items-start text-center lg:text-left gap-6 max-w-2xl'>
                         <div className='w-full'>
@@ -44,11 +61,16 @@ export function ProjectsPage() {
                 </article>
             </div>
 
-            {/* 2º Projeto */}
             <div className='bg-white rounded-3xl drop-shadow-2xl transition duration-300 hover:scale-[1.015] hover:shadow-2xl border-2 border-gray-100 overflow-hidden'>
-                <article className='flex flex-col lg:flex-row-reverse py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'>
+                <article className='flex flex-col lg:flex-row py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'
+                    onMouseEnter={() => setHoverMemory(true)}
+                    onMouseLeave={() => setHoverMemory(false)}>
                     <div className='flex justify-center lg:justify-start lg:w-auto'>
-                        <img className='w-40 h-40 md:w-48 md:h-48 object-contain' alt='MemoryQuest' src={MemoryProject} />
+                        <img
+                            className={`w-40 h-40 md:w-48 md:h-48 object-contain transition duration-300 ${hoverMemory ? "opacity-100 scale-150 " : "opacity-100 scale-100"}`}
+                            alt='MemoryQuest'
+                            src={hoverMemory ? MemoryGif : MemoryProject}
+                        />
                     </div>
                     <div className='flex flex-col flex-1 items-center lg:items-start text-center lg:text-left gap-6 max-w-2xl'>
                         <div className='w-full'>
@@ -78,11 +100,19 @@ export function ProjectsPage() {
                 </article>
             </div>
 
-            {/* 3º Projeto */}
+
             <div className='bg-white rounded-3xl drop-shadow-2xl transition duration-300 hover:scale-[1.015] hover:shadow-2xl border-2 border-gray-100 overflow-hidden'>
-                <article className='flex flex-col lg:flex-row py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'>
+                <article
+                    className='flex flex-col lg:flex-row-reverse py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'
+                    onMouseEnter={() => setHoverOnePiece(true)}
+                    onMouseLeave={() => setHoverOnePiece(false)}
+                >
                     <div className='flex justify-center lg:justify-start lg:w-auto'>
-                        <img className='w-40 h-40 md:w-48 md:h-48 object-contain' alt='DevPiece' src={OnePieceProject} />
+                        <img
+                                className={`w-40 h-40 md:w-48 md:h-48 object-contain transition duration-300 ${hoverOnePiece ? "opacity-100 scale-150 " : "opacity-100 scale-100"}`}
+                            alt='DevPiece'
+                            src={hoverOnePiece ? OnePieceGif : OnePieceProject}
+                        />
                     </div>
                     <div className='flex flex-col flex-1 items-center lg:items-start text-center lg:text-left gap-6 max-w-2xl'>
                         <div className='w-full'>
@@ -112,16 +142,24 @@ export function ProjectsPage() {
                 </article>
             </div>
 
-            {/* 4º Projeto */}
+
             <div className='bg-white rounded-3xl drop-shadow-2xl transition duration-300 hover:scale-[1.015] hover:shadow-2xl border-2 border-gray-100 overflow-hidden'>
-                <article className='flex flex-col lg:flex-row-reverse py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'>
+                <article
+                    className='flex flex-col lg:flex-row py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'
+                    onMouseEnter={() => setHoverPokemon(true)}
+                    onMouseLeave={() => setHoverPokemon(false)}
+                >
                     <div className='flex justify-center lg:justify-start lg:w-auto'>
-                        <img className='w-40 h-40 md:w-48 md:h-48 object-contain' alt='PokeInfo' src={PokemonProject} />
+                        <img
+                                className={`w-40 h-40 md:w-48 md:h-48 object-contain transition duration-300 ${hoverPokemon? "opacity-100 scale-150 " : "opacity-100 scale-100"}`}
+                            alt='PokéStats'
+                            src={hoverPokemon ? PokemonGif : PokemonProject}
+                        />
                     </div>
                     <div className='flex flex-col flex-1 items-center lg:items-start text-center lg:text-left gap-6 max-w-2xl'>
                         <div className='w-full'>
-                            <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>PokeInfo</h3>
-                            <p className='text-gray-600 md:text-lg'>Descubra informações detalhadas dos seus pokémons favoritos: tipo, habilidades, número na pokédex e muito mais.</p>
+                            <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>PokéStats</h3>
+                            <p className='text-gray-600 md:text-lg'>Descubra os dados dos seus Pokémons favoritos com este buscador interativo que consome a PokéAPI.</p>
                         </div>
                         <div className='w-full flex flex-col items-center lg:items-start gap-6'>
                             <div className='flex flex-wrap justify-center gap-4'>
@@ -130,7 +168,7 @@ export function ProjectsPage() {
                                         <img src={gitHub} alt="GitHub" className='w-5' /> Código
                                     </button>
                                 </a>
-                                <a href="https://victor-pokedex.netlify.app/" target="_blank" rel="noopener noreferrer">
+                                <a href="https://pokedex-victor.netlify.app/" target="_blank" rel="noopener noreferrer">
                                     <button className="bg-primaryL h-12 md:h-14 flex items-center gap-x-2 text-gray-900 font-medium py-2 px-6 rounded-xl border-2 border-gray-900 transition duration-300 hover:bg-[#ecb900] hover:shadow-md">
                                         <img src={ArrowForLinks} alt="Acessar" className='w-5' /> Acessar
                                     </button>
