@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../index.css';
 
-import EuJuntoDaLaila from './img/Eu-com-a-laila.png';
+import profilePicture from './img/profilePicture.png';
 
 import HTML from './img/HTML.svg';
 import CSS from './img/CSS.svg';
@@ -104,27 +104,25 @@ export function SkillsAndAboutMe() {
         )}
       </article>
 
-      <article className="pt-24 w-full max-w-4xl mx-auto px-6">
+      <article className="pt-12 w-full max-w-4xl mx-auto px-6">
         <h4 className="text-4xl font-black text-center mb-12 text-gray-900">Sobre mim</h4>
 
-        <div className="flex flex-col items-center gap-10 bg-white/90 border border-gray-200 rounded-3xl shadow-xl p-8 md:flex-row md:items-start md:gap-14">
+        <div className="flex flex-col items-center gap-5 bg-white/90 border border-gray-200 rounded-3xl shadow-xl p-8 md:flex-row md:items-start md:gap-14">
           <img
-            className="w-48 h-48 object-cover shadow-md"
+            className="w-48 h-64 object-cover shadow-md"
             alt="Eu junto da Laila"
-            src={EuJuntoDaLaila}
+            src={profilePicture}
           />
           <div className="text-center md:text-left text-gray-800">
-            <p className="text-lg leading-relaxed">
-              Olá! Me chamo <span className="font-semibold text-gray-900">Victor</span> e desde 2022 venho estudando
+            <p className="text-sm md:text-lg  leading-relaxed">
+              Olá! Me chamo <span className="font-semibold text-sm md:text-lg text-gray-900">Victor</span> e desde 2022 venho estudando
               linguagens de programação com o intuito de transformar conceitos em experiências digitais reais. Estou em
               transição de carreira e sigo me especializando através de{' '}
               <span className="font-medium text-gray-900">networking, eventos e cursos online</span>.
             </p>
-            <p className="mt-4 text-lg leading-relaxed">
+            <p className="mt-2 text-sm md:text-lg leading-relaxed">
               Quando não estou codando, você provavelmente vai me encontrar{' '}
-              <span className="italic">cozinhando uma receita nova, jogando algum game ou praticando esportes</span>. Ah,
-              e claro: sempre com a Laila por perto!
-            </p>
+              <span className="italic">cozinhando uma receita nova, jogando algum game ou praticando esportes</span></p>
           </div>
         </div>
       </article>
