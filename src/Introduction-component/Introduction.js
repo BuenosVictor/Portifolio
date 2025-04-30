@@ -54,7 +54,7 @@ export function Introduction() {
                     <a className='transform hover:scale-105 p-2 cursor-pointer transition-all duration-300 hover:bg-gray-200 rounded-lg' href='https://www.linkedin.com/in/victor-bueno-382054262/' target="_blank" rel="noopener noreferrer">
                         <img src={Linkedin} alt='Linkedin' className='w-8' />
                     </a>
-                    <a className='transform hover:scale-105 p-2 cursor-pointer transition-all duration-300 hover:bg-gray-200 rounded-lg' href='https://1drv.ms/w/s!AtTcgXJuNhOUcPgyuOnSJbASfck?e=a2YDRp' target="_blank" rel="noopener noreferrer">
+                    <a className='transform hover:scale-105 p-2 cursor-pointer transition-all duration-300 hover:bg-gray-200 rounded-lg' href='https://1drv.ms/w/c/1F0ED2D8594CEAFC/AaAzCcASixFEpCd_kkuLaIA?e=eyxdGi' target="_blank" rel="noopener noreferrer">
                         <img src={Curriculo} alt='Curriculo' className='w-8' />
                     </a>
                     <a className='transform hover:scale-105 p-2 cursor-pointer transition-all duration-300 hover:bg-gray-200 rounded-lg' href='https://mail.google.com/mail/?view=cm&to=buenos.victor2004@gmail.com' target="_blank" rel="noopener noreferrer">
