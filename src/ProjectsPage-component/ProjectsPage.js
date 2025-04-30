@@ -62,7 +62,7 @@ export function ProjectsPage() {
             </div>
 
             <div className='bg-white rounded-3xl drop-shadow-2xl transition duration-300 hover:scale-[1.015] hover:shadow-2xl border-2 border-gray-100 overflow-hidden'>
-                <article className='flex flex-col lg:flex-row py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'
+                <article className='flex flex-col lg:flex-row-reverse py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'
                     onMouseEnter={() => setHoverMemory(true)}
                     onMouseLeave={() => setHoverMemory(false)}>
                     <div className='flex justify-center lg:justify-start lg:w-auto'>
@@ -103,7 +103,7 @@ export function ProjectsPage() {
 
             <div className='bg-white rounded-3xl drop-shadow-2xl transition duration-300 hover:scale-[1.015] hover:shadow-2xl border-2 border-gray-100 overflow-hidden'>
                 <article
-                    className='flex flex-col lg:flex-row-reverse py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'
+                    className='flex flex-col lg:flex-row py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'
                     onMouseEnter={() => setHoverOnePiece(true)}
                     onMouseLeave={() => setHoverOnePiece(false)}
                 >
@@ -145,7 +145,7 @@ export function ProjectsPage() {
 
             <div className='bg-white rounded-3xl drop-shadow-2xl transition duration-300 hover:scale-[1.015] hover:shadow-2xl border-2 border-gray-100 overflow-hidden'>
                 <article
-                    className='flex flex-col lg:flex-row py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'
+                    className='flex flex-col lg:flex-row-reverse py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'
                     onMouseEnter={() => setHoverPokemon(true)}
                     onMouseLeave={() => setHoverPokemon(false)}
                 >
