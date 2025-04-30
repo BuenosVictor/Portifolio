@@ -35,7 +35,7 @@ export function ProjectsPage() {
                     </div>
                     <div className='flex flex-col flex-1 items-center lg:items-start text-center lg:text-left gap-6 max-w-2xl'>
                         <div className='w-full'>
-                            <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>PrevisãoPro</h3>
+                            <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>Ventus</h3>
                             <p className='text-gray-600 md:text-lg'>O site utiliza a Weather API para fornecer informações precisas sobre o clima em países ao redor do mundo. Desenvolvido com o objetivo de aprofundar meus conhecimentos em consumo de APIs, ele exibe dados como temperatura, umidade, previsão e outras informações úteis sobre o tempo de forma clara e acessível.</p>
                         </div>
                         <div className='w-full flex flex-col items-center lg:items-start gap-6'>
@@ -74,7 +74,7 @@ export function ProjectsPage() {
                     </div>
                     <div className='flex flex-col flex-1 items-center lg:items-start text-center lg:text-left gap-6 max-w-2xl'>
                         <div className='w-full'>
-                            <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>MemoryQuest</h3>
+                            <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>Code Pairs</h3>
                             <p className='text-gray-600 md:text-lg'>Este projeto foi um grande desafio, pois exigia uma boa organização do código em CSS, HTML e JavaScript. Focado em melhorar minhas habilidades em JavaScript e lógica de programação, também foi quando recebi o maior apoio da minha mentoria. A orientação de um desenvolvedor sênior, que questionava e validava minhas escolhas de implementação, foi fundamental para o meu crescimento.</p>
                         </div>
                         <div className='w-full flex flex-col items-center lg:items-start gap-6'>
@@ -116,7 +116,7 @@ export function ProjectsPage() {
                     </div>
                     <div className='flex flex-col flex-1 items-center lg:items-start text-center lg:text-left gap-6 max-w-2xl'>
                         <div className='w-full'>
-                            <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>DevPiece</h3>
+                            <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>One Piece</h3>
                             <p className='text-gray-600 md:text-lg'>Este projeto foi desenvolvido durante um evento com os irmãos Ricardo e Roberto, fundadores do canal DevEmDobro. Criei uma aplicação inspirada no anime One Piece, usando animações em CSS e funcionalidades simples em JavaScript. Foi meu primeiro contato com uma comunidade de programadores, o que foi essencial para resolver problemas neste projeto e em outros futuros, além de fortalecer meu interesse pela área.</p>
                         </div>
                         <div className='w-full flex flex-col items-center lg:items-start gap-6'>
@@ -158,7 +158,7 @@ export function ProjectsPage() {
                     </div>
                     <div className='flex flex-col flex-1 items-center lg:items-start text-center lg:text-left gap-6 max-w-2xl'>
                         <div className='w-full'>
-                            <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>PokéStats</h3>
+                            <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>Pokedex</h3>
                             <p className='text-gray-600 md:text-lg'>O projeto começou como um desafio para melhorar minhas habilidades em CSS e iniciar o aprendizado de lógica de programação, mas, com o tempo, pretendo incluir funcionalidades como "busca de Pokémons", com informações detalhadas sobre descrições, fraquezas e habitats.</p>
                         </div>
                         <div className='w-full flex flex-col items-center lg:items-start gap-6'>
@@ -168,7 +168,7 @@ export function ProjectsPage() {
                                         <img src={gitHub} alt="GitHub" className='w-5' /> Código
                                     </button>
                                 </a>
-                                <a href="https://pokedex-victor.netlify.app/" target="_blank" rel="noopener noreferrer">
+                                <a href="https://victor-pokedex.netlify.app/" target="_blank" rel="noopener noreferrer">
                                     <button className="bg-primaryL h-12 md:h-14 flex items-center gap-x-2 text-gray-900 font-medium py-2 px-6 rounded-xl border-2 border-gray-900 transition duration-300 hover:bg-[#ecb900] hover:shadow-md">
                                         <img src={ArrowForLinks} alt="Acessar" className='w-5' /> Acessar
                                     </button>

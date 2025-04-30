@@ -18,25 +18,25 @@ export function ProjectsCarousel() {
     const projects = [
         {
             image: WheatherProject,
-            text: 'PrevisãoPro: O site utiliza a Weather API para trazer informações do clima de forma prática e objetiva. Foi um projeto focado em aprofundar meus conhecimentos no consumo de APIs e exibir dados como temperatura e previsão do tempo de maneira clara.',
+            text: 'Ventus: O site utiliza a Weather API para trazer informações do clima de forma prática e objetiva. Foi um projeto focado em aprofundar meus conhecimentos no consumo de APIs e exibir dados como temperatura e previsão do tempo de maneira clara.',
             githubLink: 'https://github.com/BuenosVictor/App-Clima',
             accessLink: 'https://app-clima-victor.netlify.app/',
         },
         {
             image: PokemonProject,
-            text: 'PokeInfo: Nasceu como um desafio para evoluir minhas habilidades em CSS e dar os primeiros passos na lógica de programação. A ideia é expandi-lo futuramente com uma busca por Pokémons e informações detalhadas de cada um.',
+            text: 'Pokedex: Nasceu como um desafio para evoluir minhas habilidades em CSS e dar os primeiros passos na lógica de programação. A ideia é expandi-lo futuramente com uma busca por Pokémons e informações detalhadas de cada um.',
             githubLink: 'https://github.com/BuenosVictor/Pokedex',
             accessLink: 'https://victor-pokedex.netlify.app/',
         },
         {
             image: OnePieceProject,
-            text: 'DevPiece: Foi criado durante um evento com o pessoal do canal DevEmDobro. Inspirado no anime One Piece, usei animações em CSS e funcionalidades básicas de JavaScript. Além de desenvolver o projeto, essa experiência foi essencial para me conectar com a comunidade dev.',
+            text: 'One Piece: Foi criado durante um evento com o pessoal do canal DevEmDobro. Inspirado no anime One Piece, usei animações em CSS e funcionalidades básicas de JavaScript. Além de desenvolver o projeto, essa experiência foi essencial para me conectar com a comunidade dev.',
             githubLink: 'https://github.com/BuenosVictor/One-Piece',
             accessLink: 'https://one-piece-layout.netlify.app/',
         },
         {
             image: MemoryProject,
-            text: 'MemoryQuest: Foi um projeto desafiador, onde pude aprimorar minhas habilidades de organização de código e lógica em JavaScript. Com o apoio de um mentor experiente, consegui evoluir bastante na forma como estruturo meus projetos.',
+            text: 'CodePairs: Foi um projeto desafiador, onde pude aprimorar minhas habilidades de organização de código e lógica em JavaScript. Com o apoio de um mentor experiente, consegui evoluir bastante na forma como estruturo meus projetos.',
             githubLink: 'https://github.com/BuenosVictor/Jogo-da-Memoria',
             accessLink: 'https://jogo-da-memoria-victor.netlify.app/',
         },
@@ -98,7 +98,7 @@ export function ProjectsCarousel() {
 
                 {/* Texto */}
                 <div className={`flex-1 flex flex-col items-center lg:items-start text-center lg:text-left transition-all duration-500 max-h-[24rem] ${animate ? 'opacity-0 translate-x-[-20px]' : 'opacity-100 translate-x-0'}`}>
-                    <h3 className="text-2xl sm:text-3xl font-bold mb-4">{title}</h3>
+                    <h3 className="text-2xl sm:text-3xl text-white font-bold mb-4">{title}</h3>
                     <p className="text-base sm:text-lg">{description}</p>
 
                     {/* Botões de links */}
