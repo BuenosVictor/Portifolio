@@ -1,189 +1,167 @@
-import '../index.css'
-import { useState } from 'react'
-import WeatherProject from './img/Weather.svg'
-import WeatherGif from './img/Weather.gif'
-import PokemonProject from './img/Pokemon.svg'
-import PokemonGif from './img/pokedex.gif'
-import OnePieceProject from './img/OnePiece.svg'
-import OnePieceGif from './img/OnePiece.gif'
-import MemoryProject from './img/Memory.svg'
-import MemoryGif from './img/Memory.gif'
-import gitHub from './img/Github.svg'
-import ArrowForLinks from './img/ArrowForLinks.svg'
+import { useEffect, useRef, useState } from 'react';
+import { projects } from '../data/projects';
+import { Button } from '../ui/Button';
+import { PageHeader } from '../ui/Section';
+import { TechChip } from '../ui/TechChip';
+import externalIcon from '../assets/icons/external-link.svg';
+import githubIcon from '../assets/icons/github.svg';
 
-export function ProjectsPage() {
-    const [hoverWeather, setHoverWeather] = useState(false)
-    const [hoverMemory, setHoverMemory] = useState(false)
-    const [hoverOnePiece, setHoverOnePiece] = useState(false)
-    const [hoverPokemon, setHoverPokemon] = useState(false)
+// Os GIFs ficam em `public/gifs/`, fora do bundle. Importados, os 32 MB
+// entravam no JavaScript da rota e eram baixados so por abrir a pagina.
+const gifUrl = (file) => `${process.env.PUBLIC_URL}/gifs/${file}`;
+
+/**
+ * Mostra o screenshot estatico e so busca o GIF quando o card entra na tela.
+ * Sai da tela, o GIF e descartado (volta a mostrar o screenshot): economiza
+ * dado de quem so passa o olho e nao trava com 4 GIFs tocando ao mesmo tempo.
+ * Respeita `prefers-reduced-motion`, que ja e convencao no resto do site.
+ */
+function ProjectMedia({ project }) {
+    const [playing, setPlaying] = useState(false);
+    const [loaded, setLoaded] = useState(false);
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        const current = containerRef.current;
+        if (!current) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => setPlaying(entry.isIntersecting),
+            { threshold: 0.3 }
+        );
+
+        observer.observe(current);
+        return () => observer.disconnect();
+    }, []);
 
     return (
-        <section className='pt-28 toFit flex flex-col gap-16 pb-24 px-4 md:px-8'>
+        <figure className="w-full">
+            <div
+                ref={containerRef}
+                className="relative aspect-[800/360] overflow-hidden rounded-2xl border border-ink/10 bg-ink/5 shadow-md"
+            >
+                <img
+                    src={project.screenshot}
+                    alt={project.screenshotAlt}
+                    width="800"
+                    height="360"
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                />
 
-    
-            <div className='bg-white rounded-3xl drop-shadow-2xl transition duration-300 hover:scale-[1.015] hover:shadow-2xl border-2 border-gray-100 overflow-hidden'>
-            <article className='flex flex-col lg:flex-row-reverse py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'
-                    onMouseEnter={() => setHoverWeather(true)}
-                    onMouseLeave={() => setHoverWeather(false)}>
-                    <div className='flex justify-center lg:justify-start lg:w-auto'>
-                      
+                {playing && (
+                    <>
+                        {!loaded && (
+                            <span className="absolute inset-0 grid place-items-center bg-white/85 text-sm font-medium text-inkSoft">
+                                Carregando prévia…
+                            </span>
+                        )}
                         <img
-                            className={`w-40 h-40 md:w-48 md:h-48 object-contain transition duration-300 ${hoverWeather ? "opacity-100 scale-150" : "opacity-100 scale-100"}`}
-                            alt='PrevisãoPro'
-                            src={hoverWeather ? WeatherGif : WeatherProject}
+                            src={gifUrl(project.gif)}
+                            alt={`Prévia animada do projeto ${project.name} em funcionamento`}
+                            onLoad={() => setLoaded(true)}
+                            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
+                                loaded ? 'opacity-100' : 'opacity-0'
+                            }`}
                         />
-                    </div>
-                    <div className='flex flex-col flex-1 items-center lg:items-start text-center lg:text-left gap-6 max-w-2xl'>
-                        <div className='w-full'>
-                            <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>Ventus</h3>
-                            <p className='text-gray-600 md:text-lg'>O site utiliza a Weather API para fornecer informações precisas sobre o clima em países ao redor do mundo. Desenvolvido com o objetivo de aprofundar meus conhecimentos em consumo de APIs, ele exibe dados como temperatura, umidade, previsão e outras informações úteis sobre o tempo de forma clara e acessível.</p>
-                        </div>
-                        <div className='w-full flex flex-col items-center lg:items-start gap-6'>
-                            <div className='flex flex-wrap justify-center gap-4'>
-                                <a href="https://github.com/BuenosVictor/App-Clima" target="_blank" rel="noopener noreferrer">
-                                    <button className="bg-primaryL h-12 md:h-14 flex items-center gap-x-2 text-gray-900 font-medium py-2 px-6 rounded-xl border-2 border-gray-900 transition duration-300 hover:bg-[#ecb900] hover:shadow-md">
-                                        <img src={gitHub} alt="GitHub" className='w-5' /> Código
-                                    </button>
-                                </a>
-                                <a href="https://app-clima-victor.netlify.app/" target="_blank" rel="noopener noreferrer">
-                                    <button className="bg-primaryL h-12 md:h-14 flex items-center gap-x-2 text-gray-900 font-medium py-2 px-6 rounded-xl border-2 border-gray-900 transition duration-300 hover:bg-[#ecb900] hover:shadow-md">
-                                        <img src={ArrowForLinks} alt="Acessar" className='w-5' /> Acessar
-                                    </button>
-                                </a>
-                            </div>
-                            <ol className='flex flex-wrap justify-center gap-3'>
-                                <li className='border-2 px-4 py-1 rounded-full border-CSS text-CSS font-medium shadow-sm transition duration-300 hover:bg-CSS hover:text-white hover:scale-105 text-sm md:text-base'>CSS</li>
-                                <li className='border-2 px-4 py-1 rounded-full border-HTML text-HTML font-medium shadow-sm transition duration-300 hover:bg-HTML hover:text-white hover:scale-105 text-sm md:text-base'>HTML</li>
-                                <li className='border-2 px-4 py-1 rounded-full border-JS text-JS font-medium shadow-sm transition duration-300 hover:bg-JS hover:text-gray-800 hover:scale-105 text-sm md:text-base'>Javascript</li>
-                            </ol>
-                        </div>
-                    </div>
-                </article>
+                    </>
+                )}
             </div>
+        </figure>
+    );
+}
 
-            <div className='bg-white rounded-3xl drop-shadow-2xl transition duration-300 hover:scale-[1.015] hover:shadow-2xl border-2 border-gray-100 overflow-hidden'>
-                <article className='flex flex-col lg:flex-row-reverse py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'
-                    onMouseEnter={() => setHoverMemory(true)}
-                    onMouseLeave={() => setHoverMemory(false)}>
-                    <div className='flex justify-center lg:justify-start lg:w-auto'>
-                        <img
-                            className={`w-40 h-40 md:w-48 md:h-48 object-contain transition duration-300 ${hoverMemory ? "opacity-100 scale-150 " : "opacity-100 scale-100"}`}
-                            alt='MemoryQuest'
-                            src={hoverMemory ? MemoryGif : MemoryProject}
-                        />
-                    </div>
-                    <div className='flex flex-col flex-1 items-center lg:items-start text-center lg:text-left gap-6 max-w-2xl'>
-                        <div className='w-full'>
-                            <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>Code Pairs</h3>
-                            <p className='text-gray-600 md:text-lg'>Este projeto foi um grande desafio, pois exigia uma boa organização do código em CSS, HTML e JavaScript. Focado em melhorar minhas habilidades em JavaScript e lógica de programação, também foi quando recebi o maior apoio da minha mentoria. A orientação de um desenvolvedor sênior, que questionava e validava minhas escolhas de implementação, foi fundamental para o meu crescimento.</p>
-                        </div>
-                        <div className='w-full flex flex-col items-center lg:items-start gap-6'>
-                            <div className='flex flex-wrap justify-center gap-4'>
-                                <a href="https://github.com/BuenosVictor/Jogo-da-Memoria" target="_blank" rel="noopener noreferrer">
-                                    <button className="bg-primaryL h-12 md:h-14 flex items-center gap-x-2 text-gray-900 font-medium py-2 px-6 rounded-xl border-2 border-gray-900 transition duration-300 hover:bg-[#ecb900] hover:shadow-md">
-                                        <img src={gitHub} alt="GitHub" className='w-5' /> Código
-                                    </button>
-                                </a>
-                                <a href="https://jogo-da-memoria-victor.netlify.app/" target="_blank" rel="noopener noreferrer">
-                                    <button className="bg-primaryL h-12 md:h-14 flex items-center gap-x-2 text-gray-900 font-medium py-2 px-6 rounded-xl border-2 border-gray-900 transition duration-300 hover:bg-[#ecb900] hover:shadow-md">
-                                        <img src={ArrowForLinks} alt="Acessar" className='w-5' /> Acessar
-                                    </button>
-                                </a>
+export function ProjectsPage() {
+    return (
+        <>
+            <PageHeader
+                eyebrow="Projetos"
+                title="Tudo o que eu construí"
+                subtitle='Todos estão no ar e funcionando. Clique em "Ver funcionando" para testar direto no navegador. Não precisa instalar nada.'
+            />
+
+            <section className="pb-16">
+                <div className="container-page flex flex-col gap-12 md:gap-16">
+                    {projects.map((project, index) => (
+                        <article
+                            key={project.slug}
+                            // `id` permite link direto (ex.: /projetos#ventus) vindo dos
+                            // cards da home e da pagina de habilidades.
+                            id={project.slug}
+                            className={`scroll-mt-28 grid items-center gap-8 md:gap-12 lg:grid-cols-2 ${
+                                index % 2 === 1 ? 'lg:[&>figure]:order-2' : ''
+                            }`}
+                        >
+                            <ProjectMedia project={project} />
+
+                            <div>
+                                <h2 className="text-3xl md:text-4xl font-black text-ink">{project.name}</h2>
+                                <p className="mt-2 font-semibold text-secondaryL">{project.tagline}</p>
+
+                                <p className="mt-5 leading-relaxed text-inkSoft md:text-lg">
+                                    {project.summary}
+                                </p>
+
+                                <div className="mt-6 rounded-2xl border-l-4 border-primaryL bg-white p-5 shadow-sm">
+                                    <h3 className="text-sm font-bold uppercase tracking-wider text-inkSoft">
+                                        O que esse projeto me ensinou
+                                    </h3>
+                                    <p className="mt-2 leading-relaxed text-inkSoft">{project.learned}</p>
+                                </div>
+
+                                <ul className="mt-6 flex flex-wrap gap-2">
+                                    {project.techs.map((tech) => (
+                                        <TechChip key={tech} name={tech} />
+                                    ))}
+                                </ul>
+
+                                <div className="mt-7 flex gap-3">
+                                    <Button
+                                        href={project.liveUrl}
+                                        external
+                                        variant="primary"
+                                        size="lg"
+                                        className="flex-1 max-sm:px-3 max-sm:py-2.5 max-sm:text-sm sm:flex-none"
+                                    >
+                                        <img src={externalIcon} alt="" aria-hidden="true" className="w-4 h-4 shrink-0" />
+                                        Ver funcionando
+                                        <span className="sr-only"> do projeto {project.name}</span>
+                                    </Button>
+                                    <Button
+                                        href={project.codeUrl}
+                                        external
+                                        variant="outline"
+                                        size="lg"
+                                        className="flex-1 max-sm:px-3 max-sm:py-2.5 max-sm:text-sm sm:flex-none"
+                                    >
+                                        <img src={githubIcon} alt="" aria-hidden="true" className="w-4 h-4 shrink-0" />
+                                        Ver o código
+                                        <span className="sr-only"> do projeto {project.name}</span>
+                                    </Button>
+                                </div>
                             </div>
-                            <ol className='flex flex-wrap justify-center gap-3'>
-                                <li className='border-2 px-4 py-1 rounded-full border-CSS text-CSS font-medium shadow-sm transition duration-300 hover:bg-CSS hover:text-white hover:scale-105 text-sm md:text-base'>CSS</li>
-                                <li className='border-2 px-4 py-1 rounded-full border-HTML text-HTML font-medium shadow-sm transition duration-300 hover:bg-HTML hover:text-white hover:scale-105 text-sm md:text-base'>HTML</li>
-                                <li className='border-2 px-4 py-1 rounded-full border-JS text-JS font-medium shadow-sm transition duration-300 hover:bg-JS hover:text-gray-800 hover:scale-105 text-sm md:text-base'>Javascript</li>
-                            </ol>
-                        </div>
-                    </div>
-                </article>
-            </div>
+                        </article>
+                    ))}
+                </div>
+            </section>
 
-
-            <div className='bg-white rounded-3xl drop-shadow-2xl transition duration-300 hover:scale-[1.015] hover:shadow-2xl border-2 border-gray-100 overflow-hidden'>
-                <article
-                    className='flex flex-col lg:flex-row py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'
-                    onMouseEnter={() => setHoverOnePiece(true)}
-                    onMouseLeave={() => setHoverOnePiece(false)}
-                >
-                    <div className='flex justify-center lg:justify-start lg:w-auto'>
-                        <img
-                                className={`w-40 h-40 md:w-48 md:h-48 object-contain transition duration-300 ${hoverOnePiece ? "opacity-100 scale-150 " : "opacity-100 scale-100"}`}
-                            alt='DevPiece'
-                            src={hoverOnePiece ? OnePieceGif : OnePieceProject}
-                        />
+            <section className="border-t border-ink/10 bg-white py-12 md:py-16">
+                <div className="container-page flex flex-col items-center gap-6 text-center">
+                    <h2 className="text-2xl md:text-3xl font-bold text-ink">
+                        Quer saber como eu construí tudo isso?
+                    </h2>
+                    <div className="flex flex-wrap justify-center gap-3">
+                        <Button to="/habilidades" variant="primary" size="lg">
+                            Ver minhas habilidades
+                        </Button>
+                        <Button to="/experiencia" variant="outline" size="lg">
+                            Minha experiência
+                        </Button>
                     </div>
-                    <div className='flex flex-col flex-1 items-center lg:items-start text-center lg:text-left gap-6 max-w-2xl'>
-                        <div className='w-full'>
-                            <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>One Piece</h3>
-                            <p className='text-gray-600 md:text-lg'>Este projeto foi desenvolvido durante um evento com os irmãos Ricardo e Roberto, fundadores do canal DevEmDobro. Criei uma aplicação inspirada no anime One Piece, usando animações em CSS e funcionalidades simples em JavaScript. Foi meu primeiro contato com uma comunidade de programadores, o que foi essencial para resolver problemas neste projeto e em outros futuros, além de fortalecer meu interesse pela área.</p>
-                        </div>
-                        <div className='w-full flex flex-col items-center lg:items-start gap-6'>
-                            <div className='flex flex-wrap justify-center gap-4'>
-                                <a href="https://github.com/BuenosVictor/One-Piece" target="_blank" rel="noopener noreferrer">
-                                    <button className="bg-primaryL h-12 md:h-14 flex items-center gap-x-2 text-gray-900 font-medium py-2 px-6 rounded-xl border-2 border-gray-900 transition duration-300 hover:bg-[#ecb900] hover:shadow-md">
-                                        <img src={gitHub} alt="GitHub" className='w-5' /> Código
-                                    </button>
-                                </a>
-                                <a href="https://one-piece-layout.netlify.app/" target="_blank" rel="noopener noreferrer">
-                                    <button className="bg-primaryL h-12 md:h-14 flex items-center gap-x-2 text-gray-900 font-medium py-2 px-6 rounded-xl border-2 border-gray-900 transition duration-300 hover:bg-[#ecb900] hover:shadow-md">
-                                        <img src={ArrowForLinks} alt="Acessar" className='w-5' /> Acessar
-                                    </button>
-                                </a>
-                            </div>
-                            <ol className='flex flex-wrap justify-center gap-3'>
-                                <li className='border-2 px-4 py-1 rounded-full border-CSS text-CSS font-medium shadow-sm transition duration-300 hover:bg-CSS hover:text-white hover:scale-105 text-sm md:text-base'>CSS</li>
-                                <li className='border-2 px-4 py-1 rounded-full border-HTML text-HTML font-medium shadow-sm transition duration-300 hover:bg-HTML hover:text-white hover:scale-105 text-sm md:text-base'>HTML</li>
-                                <li className='border-2 px-4 py-1 rounded-full border-JS text-JS font-medium shadow-sm transition duration-300 hover:bg-JS hover:text-gray-800 hover:scale-105 text-sm md:text-base'>Javascript</li>
-                            </ol>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-
-            <div className='bg-white rounded-3xl drop-shadow-2xl transition duration-300 hover:scale-[1.015] hover:shadow-2xl border-2 border-gray-100 overflow-hidden'>
-                <article
-                    className='flex flex-col lg:flex-row-reverse py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:px-16 w-full m-auto justify-around items-center gap-8 md:gap-12'
-                    onMouseEnter={() => setHoverPokemon(true)}
-                    onMouseLeave={() => setHoverPokemon(false)}
-                >
-                    <div className='flex justify-center lg:justify-start lg:w-auto'>
-                        <img
-                                className={`w-40 h-40 md:w-48 md:h-48 object-contain transition duration-300 ${hoverPokemon? "opacity-100 scale-150 " : "opacity-100 scale-100"}`}
-                            alt='PokéStats'
-                            src={hoverPokemon ? PokemonGif : PokemonProject}
-                        />
-                    </div>
-                    <div className='flex flex-col flex-1 items-center lg:items-start text-center lg:text-left gap-6 max-w-2xl'>
-                        <div className='w-full'>
-                            <h3 className='text-3xl md:text-4xl font-bold text-secondaryL mb-4'>Pokedex</h3>
-                            <p className='text-gray-600 md:text-lg'>O projeto começou como um desafio para melhorar minhas habilidades em CSS e iniciar o aprendizado de lógica de programação, mas, com o tempo, pretendo incluir funcionalidades como "busca de Pokémons", com informações detalhadas sobre descrições, fraquezas e habitats.</p>
-                        </div>
-                        <div className='w-full flex flex-col items-center lg:items-start gap-6'>
-                            <div className='flex flex-wrap justify-center gap-4'>
-                                <a href="https://github.com/BuenosVictor/Pokedex" target="_blank" rel="noopener noreferrer">
-                                    <button className="bg-primaryL h-12 md:h-14 flex items-center gap-x-2 text-gray-900 font-medium py-2 px-6 rounded-xl border-2 border-gray-900 transition duration-300 hover:bg-[#ecb900] hover:shadow-md">
-                                        <img src={gitHub} alt="GitHub" className='w-5' /> Código
-                                    </button>
-                                </a>
-                                <a href="https://victor-pokedex.netlify.app/" target="_blank" rel="noopener noreferrer">
-                                    <button className="bg-primaryL h-12 md:h-14 flex items-center gap-x-2 text-gray-900 font-medium py-2 px-6 rounded-xl border-2 border-gray-900 transition duration-300 hover:bg-[#ecb900] hover:shadow-md">
-                                        <img src={ArrowForLinks} alt="Acessar" className='w-5' /> Acessar
-                                    </button>
-                                </a>
-                            </div>
-                            <ol className='flex flex-wrap justify-center gap-3'>
-                                <li className='border-2 px-4 py-1 rounded-full border-CSS text-CSS font-medium shadow-sm transition duration-300 hover:bg-CSS hover:text-white hover:scale-105 text-sm md:text-base'>CSS</li>
-                                <li className='border-2 px-4 py-1 rounded-full border-HTML text-HTML font-medium shadow-sm transition duration-300 hover:bg-HTML hover:text-white hover:scale-105 text-sm md:text-base'>HTML</li>
-                                <li className='border-2 px-4 py-1 rounded-full border-JS text-JS font-medium shadow-sm transition duration-300 hover:bg-JS hover:text-gray-800 hover:scale-105 text-sm md:text-base'>Javascript</li>
-                            </ol>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-        </section>
-    )
+                </div>
+            </section>
+        </>
+    );
 }

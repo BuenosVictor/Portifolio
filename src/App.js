@@ -1,23 +1,68 @@
 import './index.css';
-import { Header } from './Header-component/Header.js'
+import { useEffect } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
+import { Header } from './Header-component/Header.js';
 import { Footer } from './Footer-component/Footer.js';
-import { Outlet } from 'react-router-dom';
+
+/**
+ * O React Router v6 nao restaura scroll nem pula para a ancora sozinho.
+ * Sem isto, clicar em "Projetos" estando em /sobre-mim so trocava a URL.
+ */
+function useScrollOnNavigate() {
+    const { pathname, hash } = useLocation();
+
+    useEffect(() => {
+        if (!hash) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+
+        let timer = null;
+
+        // rAF: o elemento alvo pode ainda nao estar montado no primeiro paint.
+        const frame = requestAnimationFrame(() => {
+            const target = document.querySelector(hash);
+            if (!target) return;
+
+            // O recuo do header fixo vem do `scroll-padding-top` em index.css.
+            target.scrollIntoView({ behavior: 'smooth' });
+
+            // Pisca o card de destino. Feito por classe, e nao pelo `:target` do
+            // CSS, porque o pushState do React Router muda a URL mas nao o
+            // elemento-alvo do documento — `:target` nunca casaria.
+            target.classList.add('destacado');
+            timer = setTimeout(() => target.classList.remove('destacado'), 2000);
+        });
+
+        return () => {
+            cancelAnimationFrame(frame);
+            if (timer) clearTimeout(timer);
+        };
+    }, [pathname, hash]);
+}
 
 function App() {
-  return (
+    useScrollOnNavigate();
+    // `key` pelo pathname: trocar de aba remonta o <main> e a animacao roda de
+    // novo. Sem o key, o CSS so animaria no primeiro carregamento. Fica de fora
+    // o hash — ir para /habilidades#css nao deve reanimar a pagina inteira.
+    const { pathname } = useLocation();
 
-    
+    return (
+        <div className="min-h-screen bg-surface">
+            <a className="skip-link" href="#conteudo">
+                Pular para o conteúdo
+            </a>
 
+            <Header />
 
-    <div className="App">
+            <main id="conteudo" key={pathname} className="entra-pagina">
+                <Outlet />
+            </main>
 
-      <Header />
-      <Outlet />
-      <Footer />
-
-
-    </div>
-  );
+            <Footer />
+        </div>
+    );
 }
 
 export default App;
