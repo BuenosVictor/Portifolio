@@ -1,0 +1,3 @@
+# SPA: qualquer rota cai no index.html para o React Router resolver.
+# Sem isso, abrir /projetos ou /sobre-mim direto retorna 404 na Netlify.
+/*    /index.html   200
