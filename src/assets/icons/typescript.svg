@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 66 65" fill="none">
+<g clip-path="url(#clip0_ts_badge)">
+<path d="M50.2102 0H15.3705C6.8816 0 0 6.82035 0 15.2337V49.7634C0 58.1767 6.8816 64.997 15.3705 64.997H50.2102C58.6991 64.997 65.5807 58.1767 65.5807 49.7634V15.2337C65.5807 6.82035 58.6991 0 50.2102 0Z" fill="#3178C6" />
+<text x="33" y="43" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="28" fill="#FFFFFF">TS</text>
+</g>
+<defs>
+<clipPath id="clip0_ts_badge">
+<rect width="65.58" height="65" fill="white" />
+</clipPath>
+</defs>
+</svg>
