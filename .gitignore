@@ -21,6 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+debug.log
+
+# imagens originais em alta resolucao (fonte para reexportar; nao vao pro bundle)
+/assets-originais
+
+# ponto de restauracao local (ver memoria do Claude); nao versionar
+/.backup-v1
 
 # inspiracoes/
 /README.md
