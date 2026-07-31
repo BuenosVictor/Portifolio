@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Header } from './Header-component/Header.js';
 import { Footer } from './Footer-component/Footer.js';
+import { SplashScreen } from './ui/SplashScreen.js';
+import { prefetchRestante } from './data/prefetch.js';
 
 /**
  * O React Router v6 nao restaura scroll nem pula para a ancora sozinho.
@@ -41,8 +43,24 @@ function useScrollOnNavigate() {
     }, [pathname, hash]);
 }
 
+/**
+ * Quando a splash libera o site, comeca a baixar em segundo plano o que as
+ * outras abas usam (GIFs de previa e fotos) — ao navegar, ja esta no cache.
+ */
+function usePrefetchAposSplash() {
+    useEffect(() => {
+        if (window.__portfolioPronto) {
+            prefetchRestante();
+            return undefined;
+        }
+        window.addEventListener('portfolio:pronto', prefetchRestante, { once: true });
+        return () => window.removeEventListener('portfolio:pronto', prefetchRestante);
+    }, []);
+}
+
 function App() {
     useScrollOnNavigate();
+    usePrefetchAposSplash();
     // `key` pelo pathname: trocar de aba remonta o <main> e a animacao roda de
     // novo. Sem o key, o CSS so animaria no primeiro carregamento. Fica de fora
     // o hash — ir para /habilidades#css nao deve reanimar a pagina inteira.
@@ -50,6 +68,9 @@ function App() {
 
     return (
         <div className="min-h-screen bg-surface">
+            {/* Tela de abertura com a Laila; some sozinha quando o site carrega. */}
+            <SplashScreen />
+
             <a className="skip-link" href="#conteudo">
                 Pular para o conteúdo
             </a>

@@ -2,8 +2,6 @@ import grandma from './img/grandmaAndMe.jpg';
 import saxophone from './img/saxophone.jpg';
 import Street from './img/LailaInStreet.jpg';
 import park from './img/Park.jpg';
-import { Button } from '../ui/Button';
-import { links } from '../data/profile';
 
 // A trajetoria profissional completa mora em /experiencia — aqui e so contexto
 // rapido antes da parte que o Victor pediu pra ser o foco desta pagina: a pessoal.
@@ -35,7 +33,7 @@ const hobbies = [
         title: 'Saxofone',
         text: 'Desde os 8 anos. É como desacelero.',
         width: 'w-32',
-        tilt: '-rotate-8',
+        tilt: 'rotate-9',
         zigzag: 'down',
     },
     {
@@ -43,7 +41,15 @@ const hobbies = [
         title: 'Artes marciais',
         text: 'Disciplina, dentro e fora do tatame.',
         width: 'w-28',
-        tilt: 'rotate-6',
+        tilt: '-rotate-5',
+        zigzag: 'up',
+    },
+    {
+        icon: '🎮',
+        title: 'Jogos online',
+        text: 'Sobrou um tempo, eu já chamo os amigo.',
+        width: 'w-24',
+        tilt: 'rotate-11',
         zigzag: 'up',
     },
     {
@@ -54,15 +60,23 @@ const hobbies = [
         title: 'Laila',
         text: 'Musa oficial. Passeio é sagrado.',
         width: 'w-32',
-        tilt: '-rotate-4',
+        tilt: 'rotate-6',
         zigzag: 'down',
     },
     {
-        icon: '🎮',
-        title: 'Jogos online',
-        text: 'Sobrou um tempo, eu já chamo os amigo.',
+        icon: '📚',
+        title: 'Filosofia',
+        text: 'Curiosidade antes de obrigação.',
         width: 'w-24',
-        tilt: 'rotate-9',
+        tilt: '-rotate-4',
+        zigzag: 'up',
+    },
+    {
+        icon: '🍳',
+        title: 'Cozinha',
+        text: 'Gosto de uma receita nova e amo pizza.',
+        width: 'w-28',
+        tilt: 'rotate-10',
         zigzag: 'up',
     },
     {
@@ -72,25 +86,9 @@ const hobbies = [
         photoShape: 'square',
         title: 'Amigos & família',
         text: 'Churrasco, restaurante, casa da vó.',
-        width: 'w-28',
+        width: 'w-32',
         tilt: '-rotate-7',
         zigzag: 'down',
-    },
-    {
-        icon: '🍳',
-        title: 'Cozinha',
-        text: 'Gosto de uma receita nova e amo pizza.',
-        width: 'w-28',
-        tilt: 'rotate-3',
-        zigzag: 'up',
-    },
-    {
-        icon: '📚',
-        title: 'Filosofia',
-        text: 'Curiosidade antes de obrigação.',
-        width: 'w-24',
-        tilt: '-rotate-9',
-        zigzag: 'up',
     },
 ];
 
@@ -134,11 +132,17 @@ export function PageAboutMe() {
                 </div>
             </section>
 
-            {/* O foco real da pagina, a pedido do Victor: fileira unica em
-                zigue-zague, do jeito que ele desenhou. Cada hobby diz se sobe ou
-                desce via `hobby.zigzag` (nao mais par/impar por indice — ele
-                pediu pra inverter especificamente as fotos com alguns emoji).
-                `flex` sem wrap mantem tudo numa linha so. */}
+            {/* A pedido do Victor: fileira unica em zigue-zague no desktop, do jeito
+                que ele desenhou. Os 7 quadrados (96-128px cada) nao cabem numa linha
+                so abaixo de ~904px de conteudo + gap (contando o padding do
+                `container-page`, sobra por volta de 1216px de tela pra caber) — por
+                isso o scroll lateral que existia antes. Trocado por `flex-wrap`:
+                abaixo de `xl` os itens quebram em varias linhas (zigue-zague
+                desligado, so ativa em `xl:` onde a linha unica realmente cabe, senao
+                o translate-y de uma linha vaza visualmente por cima da vizinha).
+                Cada hobby diz se sobe ou desce via `hobby.zigzag` (nao mais
+                par/impar por indice — ele pediu pra inverter especificamente as
+                fotos com alguns emoji). */}
             <section className="border-y border-ink/10 bg-white py-12 md:py-20">
                 <div className="container-page">
                     <h2 className="text-center text-2xl md:text-3xl font-bold text-ink">
@@ -146,23 +150,16 @@ export function PageAboutMe() {
                     </h2>
                 </div>
 
-                {/* Full-bleed sem o truque de `w-screen`/`left-1/2`: esta div e filha
-                    direta da `<section>`, e nenhum ancestral ate o body tem padding
-                    (so os `container-page` tem, e este elemento nao esta dentro de
-                    um) — entao ela ja cobre a tela inteira sozinha, sem risco da
-                    barra de rolagem vertical cortar 1 fileira de pixels como
-                    aconteceria com `100vw`.
-                    `py-10` aqui nao e estetico, e funcional: como `translate-y` e so
-                    transform, nao conta pro tamanho da caixa em layout — sem essa
-                    folga vertical o zigue-zague cortava as pontas de cima/baixo das
-                    fotos deslocadas. */}
-                <div className="mt-4 overflow-x-auto md:mt-8">
-                    <div className="flex items-center justify-center gap-3 px-4 py-10 md:gap-5">
+                {/* `xl:py-10` acompanha o `xl:translate-y-10` do zigue-zague: como
+                    transform nao conta pro tamanho da caixa em layout, sem essa folga
+                    vertical o deslocamento cortava as pontas de cima/baixo das fotos. */}
+                <div className="container-page mt-4 md:mt-8">
+                    <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-10 py-6 md:gap-x-5 xl:flex-nowrap xl:py-10">
                         {hobbies.map((hobby) => (
                             <div
                                 key={hobby.title}
                                 className={`shrink-0 text-center ${
-                                    hobby.zigzag === 'up' ? '-translate-y-10' : 'translate-y-10'
+                                    hobby.zigzag === 'up' ? 'xl:-translate-y-10' : 'xl:translate-y-10'
                                 }`}
                             >
                                 <div
@@ -172,7 +169,7 @@ export function PageAboutMe() {
                                         <img
                                             src={hobby.photo}
                                             alt={hobby.photoAlt}
-                                            loading="lazy"
+                                            loading="eager"
                                             decoding="async"
                                             className={`w-full object-cover ${
                                                 hobby.photoShape === 'square' ? 'aspect-square' : 'aspect-[2/3]'
@@ -191,33 +188,6 @@ export function PageAboutMe() {
                                 <p className="mt-1 text-xs italic leading-snug text-inkSoft">{hobby.text}</p>
                             </div>
                         ))}
-                    </div>
-                </div>
-            </section>
-
-            <section className="py-12 md:py-16">
-                <div className="container-page flex flex-col items-center gap-6 text-center">
-                    <h2 className="text-2xl md:text-3xl font-bold text-ink">
-                        Quer ver o lado profissional?
-                    </h2>
-                    <div className="flex w-full gap-3 sm:w-auto">
-                        <Button
-                            to="/experiencia"
-                            variant="primary"
-                            size="lg"
-                            className="flex-1 max-sm:px-3 max-sm:py-2.5 max-sm:text-sm sm:flex-none"
-                        >
-                            Minha experiência
-                        </Button>
-                        <Button
-                            href={links.curriculo}
-                            external
-                            variant="outline"
-                            size="lg"
-                            className="flex-1 max-sm:px-3 max-sm:py-2.5 max-sm:text-sm sm:flex-none"
-                        >
-                            Baixar currículo
-                        </Button>
                     </div>
                 </div>
             </section>

@@ -1,7 +1,5 @@
 import { journey } from '../data/skills';
 import { PageHeader } from '../ui/Section';
-import { Button } from '../ui/Button';
-import { links } from '../data/profile';
 
 export function ExperiencePage() {
     return (
@@ -89,22 +87,6 @@ export function ExperiencePage() {
                             </li>
                         ))}
                     </ol>
-                </div>
-            </section>
-
-            <section className="py-12 md:py-16">
-                <div className="container-page flex flex-col items-center gap-6 text-center">
-                    <h2 className="text-2xl md:text-3xl font-bold text-ink">
-                        O currículo completo está aqui
-                    </h2>
-                    <div className="flex flex-wrap justify-center gap-3">
-                        <Button href={links.curriculo} external variant="primary" size="lg">
-                            Baixar currículo
-                        </Button>
-                        <Button to="/sobre-mim" variant="outline" size="lg">
-                            Conhecer minha história
-                        </Button>
-                    </div>
                 </div>
             </section>
         </>

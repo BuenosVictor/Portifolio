@@ -43,6 +43,17 @@ module.exports = {
       maxWidth: {
         content: '72rem',
       },
+      // Graus fora da escala padrao do Tailwind (0,1,2,3,6,12,45,90,180), usados
+      // no tilt dos quadrados de hobby em /sobre-mim. Sem isto a classe existe no
+      // JSX mas nao gera CSS nenhum, e o quadrado fica reto sem ninguem notar.
+      rotate: {
+        4: '4deg',
+        5: '5deg',
+        7: '7deg',
+        9: '9deg',
+        10: '10deg',
+        11: '11deg',
+      },
       keyframes: {
         fadeUp: {
           from: { opacity: '0', transform: 'translateY(16px)' },

@@ -29,7 +29,7 @@ export function AboutMe() {
                             alt="Ilustração de Victor de Souza sorrindo, de moletom"
                             width="420"
                             height="630"
-                            loading="lazy"
+                            loading="eager"
                             decoding="async"
                             className="relative h-80 w-64 rounded-3xl object-cover shadow-lg md:h-96 md:w-72"
                         />

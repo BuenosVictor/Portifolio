@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { dailySkills, learningSkills } from '../data/skills';
 import { projects } from '../data/projects';
 import { PageHeader } from '../ui/Section';
-import { Button } from '../ui/Button';
 
 const projectName = (slug) => projects.find((p) => p.slug === slug)?.name ?? slug;
 
@@ -57,7 +56,8 @@ function SkillDetail({ skill }) {
                         <span key={slug}>
                             <Link
                                 to={`/projetos#${slug}`}
-                                className="text-secondaryL underline underline-offset-4 hover:text-secondaryHover"
+                                // Baseado no link do Clecio em AboutMe.js, mas com barra mais fina.
+                                className="text-ink underline decoration-primaryL decoration-1 underline-offset-4 transition-colors duration-200 hover:text-primaryL"
                             >
                                 {projectName(slug)}
                             </Link>
@@ -106,22 +106,6 @@ export function SkillsPage() {
                         {learningSkills.map((skill) => (
                             <SkillDetail key={skill.name} skill={skill} />
                         ))}
-                    </div>
-                </div>
-            </section>
-
-            <section className="py-12 md:py-16">
-                <div className="container-page flex flex-col items-center gap-6 text-center">
-                    <h2 className="text-2xl md:text-3xl font-bold text-ink">
-                        Quer ver essas ferramentas aplicadas?
-                    </h2>
-                    <div className="flex flex-wrap justify-center gap-3">
-                        <Button to="/projetos" variant="primary" size="lg">
-                            Ver os projetos
-                        </Button>
-                        <Button to="/experiencia" variant="outline" size="lg">
-                            Minha experiência
-                        </Button>
                     </div>
                 </div>
             </section>

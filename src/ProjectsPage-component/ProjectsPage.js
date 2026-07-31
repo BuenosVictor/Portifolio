@@ -3,6 +3,7 @@ import { projects } from '../data/projects';
 import { Button } from '../ui/Button';
 import { PageHeader } from '../ui/Section';
 import { TechChip } from '../ui/TechChip';
+import { LailaRunning } from '../ui/LailaRunning';
 import externalIcon from '../assets/icons/external-link.svg';
 import githubIcon from '../assets/icons/github.svg';
 
@@ -46,7 +47,7 @@ function ProjectMedia({ project }) {
                     alt={project.screenshotAlt}
                     width="800"
                     height="360"
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
                     className="h-full w-full object-cover"
                 />
@@ -54,8 +55,13 @@ function ProjectMedia({ project }) {
                 {playing && (
                     <>
                         {!loaded && (
-                            <span className="absolute inset-0 grid place-items-center bg-white/85 text-sm font-medium text-inkSoft">
-                                Carregando prévia…
+                            <span className="absolute inset-0 grid place-items-center bg-white/90">
+                                <span className="flex flex-col items-center gap-1">
+                                    <LailaRunning className="w-28" />
+                                    <span className="text-sm font-medium text-inkSoft">
+                                        Carregando prévia…
+                                    </span>
+                                </span>
                             </span>
                         )}
                         <img
@@ -144,22 +150,6 @@ export function ProjectsPage() {
                             </div>
                         </article>
                     ))}
-                </div>
-            </section>
-
-            <section className="border-t border-ink/10 bg-white py-12 md:py-16">
-                <div className="container-page flex flex-col items-center gap-6 text-center">
-                    <h2 className="text-2xl md:text-3xl font-bold text-ink">
-                        Quer saber como eu construí tudo isso?
-                    </h2>
-                    <div className="flex flex-wrap justify-center gap-3">
-                        <Button to="/habilidades" variant="primary" size="lg">
-                            Ver minhas habilidades
-                        </Button>
-                        <Button to="/experiencia" variant="outline" size="lg">
-                            Minha experiência
-                        </Button>
-                    </div>
                 </div>
             </section>
         </>

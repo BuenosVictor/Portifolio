@@ -17,9 +17,21 @@ export function Hero() {
     const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef(null);
 
+    // A entrada so comeca quando a splash da Laila sai de cena: sem isso ela
+    // rodava escondida atras da splash e o visitante so via o final.
+    const [pronto, setPronto] = useState(() => Boolean(window.__portfolioPronto));
+
     useEffect(() => {
+        if (pronto) return undefined;
+        const marcar = () => setPronto(true);
+        window.addEventListener('portfolio:pronto', marcar, { once: true });
+        return () => window.removeEventListener('portfolio:pronto', marcar);
+    }, [pronto]);
+
+    useEffect(() => {
+        if (!pronto) return undefined;
         const current = sectionRef.current;
-        if (!current) return;
+        if (!current) return undefined;
 
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -35,7 +47,7 @@ export function Hero() {
 
         observer.observe(current);
         return () => observer.disconnect();
-    }, []);
+    }, [pronto]);
 
     // Entrada em 1s, como no original. A distancia era `-translate-x-full`
     // (a largura inteira da coluna), o que fazia o texto vir de fora da tela;

@@ -210,6 +210,79 @@
   animation: respiraPonto 2.6s ease-out infinite;
 }
 
+/* --- Laila correndo (ui/LailaRunning.js) — ciclo de corrida em CSS puro.
+   Patas em pares diagonais (trote): par A e par B em contra-fase via delay de
+   meio periodo. O corpo quica no dobro da frequencia das patas (a cada passo). */
+@keyframes lailaBob {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-4px);
+  }
+}
+@keyframes lailaSwing {
+  from {
+    transform: rotate(34deg);
+  }
+  to {
+    transform: rotate(-34deg);
+  }
+}
+@keyframes lailaTail {
+  from {
+    transform: rotate(10deg);
+  }
+  to {
+    transform: rotate(-16deg);
+  }
+}
+@keyframes lailaEar {
+  from {
+    transform: rotate(-14deg);
+  }
+  to {
+    transform: rotate(6deg);
+  }
+}
+@keyframes lailaShadow {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0.85);
+  }
+}
+
+.laila-bob {
+  animation: lailaBob 0.21s ease-in-out infinite alternate;
+}
+.laila-leg {
+  transform-box: fill-box;
+  transform-origin: 50% 12%;
+  animation: lailaSwing 0.42s ease-in-out infinite alternate;
+}
+.laila-leg-b {
+  /* meio periodo (o periodo do alternate e 0.84s) = contra-fase */
+  animation-delay: -0.42s;
+}
+.laila-tail {
+  transform-box: fill-box;
+  transform-origin: 88% 88%;
+  animation: lailaTail 0.42s ease-in-out infinite alternate;
+}
+.laila-ear {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: lailaEar 0.21s ease-in-out infinite alternate;
+  animation-delay: -0.1s;
+}
+.laila-shadow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: lailaShadow 0.21s ease-in-out infinite alternate;
+}
+
 /* Respeita quem pediu menos animacao no sistema operacional. */
 @media (prefers-reduced-motion: reduce) {
   html {

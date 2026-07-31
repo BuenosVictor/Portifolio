@@ -21,7 +21,7 @@ function ProjectCard({ project }) {
                     alt={project.screenshotAlt}
                     width="800"
                     height="360"
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
                     className="h-full w-full object-cover lg:h-auto lg:rounded-lg lg:shadow-md lg:ring-1 lg:ring-ink/10"
                 />
