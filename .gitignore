@@ -29,5 +29,3 @@ debug.log
 # ponto de restauracao local (ver memoria do Claude); nao versionar
 /.backup-v1
 
-# inspiracoes/
-/README.md
