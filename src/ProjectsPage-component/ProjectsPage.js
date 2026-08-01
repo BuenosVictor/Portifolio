@@ -7,16 +7,8 @@ import { LailaRunning } from '../ui/LailaRunning';
 import externalIcon from '../assets/icons/external-link.svg';
 import githubIcon from '../assets/icons/github.svg';
 
-// Os GIFs ficam em `public/gifs/`, fora do bundle. Importados, os 32 MB
-// entravam no JavaScript da rota e eram baixados so por abrir a pagina.
 const gifUrl = (file) => `${process.env.PUBLIC_URL}/gifs/${file}`;
 
-/**
- * Mostra o screenshot estatico e so busca o GIF quando o card entra na tela.
- * Sai da tela, o GIF e descartado (volta a mostrar o screenshot): economiza
- * dado de quem so passa o olho e nao trava com 4 GIFs tocando ao mesmo tempo.
- * Respeita `prefers-reduced-motion`, que ja e convencao no resto do site.
- */
 function ProjectMedia({ project }) {
     const [playing, setPlaying] = useState(false);
     const [loaded, setLoaded] = useState(false);
@@ -93,8 +85,7 @@ export function ProjectsPage() {
                     {projects.map((project, index) => (
                         <article
                             key={project.slug}
-                            // `id` permite link direto (ex.: /projetos#ventus) vindo dos
-                            // cards da home e da pagina de habilidades.
+
                             id={project.slug}
                             className={`scroll-mt-28 grid items-center gap-8 md:gap-12 lg:grid-cols-2 ${
                                 index % 2 === 1 ? 'lg:[&>figure]:order-2' : ''

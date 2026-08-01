@@ -7,8 +7,7 @@ const projectName = (slug) => projects.find((p) => p.slug === slug)?.name ?? slu
 
 function SkillDetail({ skill }) {
     return (
-        // `id`: quem chega de uma etiqueta de tecnologia num projeto
-        // (/habilidades#css) cai direto neste card, e o App pisca ele em amarelo.
+
         <article
             id={skill.name.toLowerCase()}
             className="scroll-mt-24 flex h-full flex-col rounded-2xl border border-ink/10 bg-white px-4 py-5 shadow-sm md:px-5 md:py-6"
@@ -17,15 +16,13 @@ function SkillDetail({ skill }) {
                 <img src={skill.icon} alt="" aria-hidden="true" className="h-9 w-9 object-contain" />
                 <div>
                     <h3 className="flex items-center gap-2 text-lg font-bold text-ink">
-                        {/* Cor de marca da tecnologia como ponto, nunca como cor de texto. */}
+
                         <span aria-hidden="true" className={`h-2.5 w-2.5 rounded-full ${skill.dot}`} />
                         {skill.name}
                     </h3>
                 </div>
             </header>
 
-            {/* flex-1: empurra o "Usei em" pro rodape do card, alinhado entre
-                cards vizinhos mesmo quando o texto de um e bem mais curto. */}
             <div className="flex-1">
                 <p className="mt-3 text-sm leading-relaxed text-inkSoft">{skill.plain}</p>
 
@@ -56,7 +53,7 @@ function SkillDetail({ skill }) {
                         <span key={slug}>
                             <Link
                                 to={`/projetos#${slug}`}
-                                // Baseado no link do Clecio em AboutMe.js, mas com barra mais fina.
+
                                 className="text-ink underline decoration-primaryL decoration-1 underline-offset-4 transition-colors duration-200 hover:text-primaryL"
                             >
                                 {projectName(slug)}
@@ -86,8 +83,7 @@ export function SkillsPage() {
                         As bases do frontend, usadas nos projetos publicados aqui, e também no meu trabalho
                         na Noweb.
                     </p>
-                    {/* Duas colunas no desktop: em coluna unica a pagina passava de
-                        6 telas de rolagem. */}
+
                     <div className="mt-6 grid gap-4 lg:grid-cols-2">
                         {dailySkills.map((skill) => (
                             <SkillDetail key={skill.name} skill={skill} />

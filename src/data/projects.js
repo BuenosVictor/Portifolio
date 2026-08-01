@@ -3,15 +3,6 @@ import codePairsShot from '../assets/screenshots/code-pairs.jpg';
 import onePieceShot from '../assets/screenshots/one-piece.jpg';
 import pokedexShot from '../assets/screenshots/pokedex.jpg';
 
-/**
- * Fonte unica dos projetos — a home e a pagina /projetos leem daqui.
- * Antes o mesmo projeto estava escrito duas vezes, com nomes e textos diferentes
- * ("CodePairs" x "Code Pairs", "MemoryQuest" no alt).
- *
- * Cada projeto tem DOIS textos porque tem dois publicos:
- *   `summary` — o que o site faz, em portugues comum. Para quem nao e tecnico.
- *   `learned` — o que o projeto exigiu de mim. Para quem e tecnico.
- */
 export const projects = [
     {
         slug: 'ventus',

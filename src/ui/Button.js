@@ -4,7 +4,6 @@ const base =
     'inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-[background-color,box-shadow,transform] duration-200 hover:-translate-y-0.5';
 
 const variants = {
-    // Amarelo da marca com texto escuro: 12,2:1 de contraste.
     primary: 'bg-primaryL text-ink shadow-sm hover:bg-primaryHover hover:shadow-md',
     dark: 'bg-ink text-white shadow-sm hover:bg-black hover:shadow-md',
     blue: 'bg-secondaryL text-white shadow-sm hover:bg-secondaryHover hover:shadow-md',
@@ -17,10 +16,6 @@ const sizes = {
     lg: 'px-6 py-3.5 text-base',
 };
 
-/**
- * Renderiza <Link> para rota interna, <a> para link externo e <button> para acao.
- * Links externos ganham rel/target e um aviso para leitor de tela.
- */
 export function Button({
     children,
     variant = 'primary',

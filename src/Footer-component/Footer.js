@@ -28,10 +28,6 @@ export function Footer() {
                             Vamos conversar?
                         </h2>
 
-                        {/* Convite profissional, sem tom de busca de emprego (decisao do
-                            Victor). "Do que voce tiver em mente" deixa recrutador ler
-                            "entrevista" sem o site dizer isso. Sem referencia de posicao
-                            ("canais abaixo"): no desktop os canais ficam ao LADO. */}
                         <p className="mt-4 max-w-md text-white/80 md:text-lg leading-relaxed">
                             Um café é sempre um bom começo: para falar de projetos, de tecnologia ou do que
                             você tiver em mente. Me chama por onde preferir.

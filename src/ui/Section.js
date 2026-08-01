@@ -1,7 +1,3 @@
-/**
- * Cabecalho padrao de secao. O "eyebrow" curto acima do titulo ajuda quem
- * escaneia a pagina em 30 segundos a saber onde esta sem ler o paragrafo.
- */
 export function SectionHeading({ eyebrow, title, subtitle, id, align = 'center' }) {
     const alignment = align === 'center' ? 'text-center items-center mx-auto' : 'text-left items-start';
 
@@ -21,7 +17,6 @@ export function SectionHeading({ eyebrow, title, subtitle, id, align = 'center' 
     );
 }
 
-/** Cabecalho das paginas de detalhe (/projetos, /habilidades, /experiencia, /sobre-mim). */
 export function PageHeader({ eyebrow, title, subtitle, children }) {
     return (
         <section className="pt-24 pb-8 md:pt-28 md:pb-10">

@@ -6,7 +6,7 @@ const facts = [
     { label: 'Emprego atual', value: 'Noweb Publicidade' },
     { label: 'Estudando desde', value: '2022' },
     { label: 'Projetos publicados', value: '4' },
-    // `href` transforma o valor em link (caso do mentor, que tem LinkedIn).
+
     {
         label: 'Mentoria',
         value: 'Clecio Almeida',
@@ -72,9 +72,7 @@ export function AboutMe() {
                                 </dt>
                                 <dd className="mt-1 text-2xl font-black text-ink">
                                     {fact.href ? (
-                                        // Letra preta com a barra amarela; no hover a letra tambem
-                                        // amarela, encontrando a barra. (Letra amarela permanente foi
-                                        // testada e descartada pelo Victor — 1,56:1, sumia mesmo.)
+
                                         <a
                                             href={fact.href}
                                             target="_blank"

@@ -4,26 +4,12 @@ const prefersReducedMotion = () =>
     typeof window !== 'undefined' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/**
- * Carrossel de foco unico: um item por vez no centro, com os vizinhos
- * aparecendo reduzidos nas laterais para sinalizar que ha mais conteudo.
- *
- * Construido sobre scroll-snap nativo — sem biblioteca. O navegador ja resolve
- * arrastar com o dedo, trackpad e as setas do teclado quando o trilho tem foco;
- * o JavaScript aqui so acrescenta os botoes, as bolinhas e o item ativo.
- *
- * A largura do slide e as margens de centralizacao vivem em `.carousel-track`
- * (src/index.css), porque dependem de `calc()` sobre uma variavel CSS.
- * O trilho deve ficar FORA do container de leitura, ocupando a largura da tela.
- */
 export function Carousel({ label, children }) {
     const trackRef = useRef(null);
     const [index, setIndex] = useState(0);
     const [atStart, setAtStart] = useState(true);
     const [atEnd, setAtEnd] = useState(false);
 
-    // Normaliza o que vier (array, elemento unico, fragmento) e garante
-    // uma key estavel em cada item.
     const slides = Children.toArray(children);
     const count = slides.length;
 
@@ -31,14 +17,12 @@ export function Carousel({ label, children }) {
         const track = trackRef.current;
         if (!track) return;
 
-        // 1px de folga: scrollLeft vira fracionado com zoom ou DPI alto.
         setAtStart(track.scrollLeft <= 1);
         setAtEnd(track.scrollLeft + track.clientWidth >= track.scrollWidth - 1);
 
         const items = Array.from(track.children);
         if (!items.length) return;
 
-        // Item ativo = aquele cujo centro esta mais perto do centro da janela.
         const viewportCenter = track.scrollLeft + track.clientWidth / 2;
         const distances = items.map((el) =>
             Math.abs(el.offsetLeft + el.clientWidth / 2 - viewportCenter)
@@ -52,8 +36,6 @@ export function Carousel({ label, children }) {
 
         let frame = null;
         const onScroll = () => {
-            // rAF: o evento de scroll dispara dezenas de vezes por segundo
-            // durante o arrasto; sem isto o React re-renderiza a cada um.
             if (frame) return;
             frame = requestAnimationFrame(() => {
                 frame = null;
@@ -76,7 +58,6 @@ export function Carousel({ label, children }) {
         const track = trackRef.current;
         const item = track?.children[target];
         if (!item) return;
-        // Centraliza o item na janela, em vez de encostar na borda esquerda.
         track.scrollTo({
             left: item.offsetLeft - (track.clientWidth - item.clientWidth) / 2,
             behavior: prefersReducedMotion() ? 'auto' : 'smooth',
@@ -85,8 +66,6 @@ export function Carousel({ label, children }) {
 
     const step = (direction) => goTo(Math.min(Math.max(index + direction, 0), count - 1));
 
-    // Setas na mesma linha das bolinhas, embaixo do carrossel: fica tudo num
-    // unico grupo de controle, em vez de espalhado pelas laterais.
     const arrowClass =
         'grid h-10 w-10 place-items-center rounded-full border border-ink/15 bg-white text-ink shadow-sm transition-[background-color,opacity] duration-200 hover:bg-ink/5 disabled:cursor-default disabled:opacity-25 disabled:hover:bg-white';
 
@@ -110,10 +89,6 @@ export function Carousel({ label, children }) {
                                     isActive ? 'scale-100 opacity-100' : 'scale-[0.92] opacity-40'
                                 }`}
                             >
-                                {/* `h-full` para todos os cards ficarem da altura do mais
-                                    alto: sem isso o trilho pulava de altura a cada troca.
-                                    Os vizinhos ficam visiveis mas nao alcancaveis por Tab
-                                    nem lidos como conteudo ativo por leitor de tela. */}
                                 <div
                                     aria-hidden={!isActive}
                                     className={`h-full ${isActive ? '' : 'pointer-events-none'}`}
@@ -137,9 +112,6 @@ export function Carousel({ label, children }) {
                 <ul className="flex items-center gap-1">
                     {slides.map((slide, i) => (
                         <li key={slide.key}>
-                            {/* `tap-target` garante 44x44px de area clicavel por um
-                                pseudo-elemento, independente do padding — por isso o
-                                padding pode ser pequeno sem prejudicar o toque. */}
                             <button
                                 type="button"
                                 onClick={() => goTo(i)}

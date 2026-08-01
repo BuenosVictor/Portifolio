@@ -3,27 +3,6 @@ import saxophone from './img/saxophone.jpg';
 import Street from './img/LailaInStreet.jpg';
 import park from './img/Park.jpg';
 
-// A trajetoria profissional completa mora em /experiencia — aqui e so contexto
-// rapido antes da parte que o Victor pediu pra ser o foco desta pagina: a pessoal.
-//
-// Conceito: fileira unica em zigue-zague, do jeito que ele desenhou num mockup
-// (5 quadrados numa linha so, alternando meia altura pra cima/baixo). Mantem as
-// rotacoes da tentativa anterior, mas: (1) fileira unica (`flex`, nao `columns`
-// nem `flex-wrap`) em vez de mural em varias linhas; (2) o deslocamento vertical
-// agora e o zigue-zague alternado (par sobe, impar desce — calculado no render
-// pelo indice), nao mais um `stagger`/`mb` por item; (3) tamanhos mais proximos
-// entre si (96–128px, contra 80–144px de antes) — ele achou a variacao anterior
-// grande demais. `nudge` (translate-x) saiu: junto com fileira unica + zigue-
-// zague, deslocamento horizontal por cima so ia atrapalhar o espacamento.
-//
-// `photoShape`: sax e Laila sao retrato 2:3 de verdade (288x432 e 768x1152);
-// a avo e quadrada de verdade (288x288). Nunca forcar outra proporcao — ja
-// cortou errado uma vez (Laila num molde paisagem) e ele reclamou.
-//
-// `zigzag`: 'up'/'down' e explicito por item (nao mais par/impar por indice) —
-// ele pediu pra inverter especificamente os 3 com foto (foram pro 'down') com
-// artes marciais/jogos online/cozinha (foram pro 'up'). Filosofia nao foi
-// mencionada, ficou como estava ('up').
 const hobbies = [
     {
         icon: '🎷',
@@ -119,8 +98,6 @@ export function PageAboutMe() {
                 </div>
             </section>
 
-            {/* Contexto profissional em UM paragrafo, nao mais timeline: a trajetoria
-                completa ja tem casa propria em /experiencia. */}
             <section className="pb-12 md:pb-16">
                 <div className="container-page max-w-2xl text-center">
                     <p className="leading-relaxed text-inkSoft md:text-lg">
@@ -132,17 +109,6 @@ export function PageAboutMe() {
                 </div>
             </section>
 
-            {/* A pedido do Victor: fileira unica em zigue-zague no desktop, do jeito
-                que ele desenhou. Os 7 quadrados (96-128px cada) nao cabem numa linha
-                so abaixo de ~904px de conteudo + gap (contando o padding do
-                `container-page`, sobra por volta de 1216px de tela pra caber) — por
-                isso o scroll lateral que existia antes. Trocado por `flex-wrap`:
-                abaixo de `xl` os itens quebram em varias linhas (zigue-zague
-                desligado, so ativa em `xl:` onde a linha unica realmente cabe, senao
-                o translate-y de uma linha vaza visualmente por cima da vizinha).
-                Cada hobby diz se sobe ou desce via `hobby.zigzag` (nao mais
-                par/impar por indice — ele pediu pra inverter especificamente as
-                fotos com alguns emoji). */}
             <section className="border-y border-ink/10 bg-white py-12 md:py-20">
                 <div className="container-page">
                     <h2 className="text-center text-2xl md:text-3xl font-bold text-ink">
@@ -150,9 +116,6 @@ export function PageAboutMe() {
                     </h2>
                 </div>
 
-                {/* `xl:py-10` acompanha o `xl:translate-y-10` do zigue-zague: como
-                    transform nao conta pro tamanho da caixa em layout, sem essa folga
-                    vertical o deslocamento cortava as pontas de cima/baixo das fotos. */}
                 <div className="container-page mt-4 md:mt-8">
                     <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-10 py-6 md:gap-x-5 xl:flex-nowrap xl:py-10">
                         {hobbies.map((hobby) => (

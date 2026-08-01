@@ -1,10 +1,6 @@
 import { useRouteError, isRouteErrorResponse } from 'react-router-dom';
 import { Button } from '../ui/Button';
 
-/**
- * Fallback da rota raiz: cobre 404 e erros de renderizacao das paginas filhas.
- * Sem isto o React Router mostra a tela padrao dele — em ingles, sem saida.
- */
 export function ErrorPage() {
     const error = useRouteError();
     const isNotFound = isRouteErrorResponse(error) && error.status === 404;

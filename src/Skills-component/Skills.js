@@ -7,7 +7,6 @@ function SkillPill({ skill }) {
         <li className="flex items-center gap-3 rounded-xl border border-ink/10 bg-white px-4 py-3 shadow-sm">
             <img src={skill.icon} alt="" aria-hidden="true" className="h-8 w-8 shrink-0 object-contain" />
             <span className="flex items-center gap-2 font-semibold text-ink">
-                {/* A cor da tecnologia vira ponto, nao cor de texto. */}
                 <span aria-hidden="true" className={`h-2.5 w-2.5 rounded-full ${skill.dot}`} />
                 {skill.name}
             </span>

@@ -59,10 +59,6 @@ export function ExperiencePage() {
                 </div>
             </section>
 
-            {/* Os 4 cards de "O que isso me deu" sairam daqui de proposito:
-                repetiam o "O que eu trago para o time" da home (mesma fonte,
-                src/data/skills.js — o `detail` de cada strength ficou la, sem uso,
-                caso ele queira de volta). */}
             <section className="border-y border-ink/10 bg-white py-12 md:py-16">
                 <div className="container-page max-w-4xl">
                     <h2 className="text-2xl md:text-3xl font-black text-ink">Como eu aprendi</h2>
@@ -75,8 +71,7 @@ export function ExperiencePage() {
                             <li key={item.title} className="relative">
                                 <span
                                     aria-hidden="true"
-                                    // -2.7rem centra a bolinha de 20px sobre a linha:
-                                    // o <li> comeca a 34px (borda 2px + pl-8) da borda da <ol>.
+
                                     className="absolute -left-[2.7rem] top-1.5 h-5 w-5 rounded-full border-4 border-surface bg-primaryL"
                                 />
                                 <p className="text-xs font-bold uppercase tracking-[0.14em] text-secondaryL">

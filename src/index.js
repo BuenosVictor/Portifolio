@@ -14,15 +14,10 @@ import { SkillsPage } from './SkillsPage-component/SkillsPage.js';
 import { ExperiencePage } from './ExperiencePage-component/ExperiencePage.js';
 import { ErrorPage } from './ErrorPage-component/ErrorPage.js';
 
-/**
- * Ordem da home pensada para quem le em 40 segundos:
- * quem sou -> prova de que construo -> o que trago alem do codigo -> ferramentas -> quem sou como pessoa.
- */
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    // Cobre 404 e qualquer erro de renderizacao nas rotas filhas.
     errorElement: <ErrorPage />,
     children: [
       {
