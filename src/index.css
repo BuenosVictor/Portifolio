@@ -5,8 +5,6 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* Header fixo (60px): sem isto os links de ancora param com o titulo
-       escondido atras dele. 4.5rem cobre o header sem sobrar folga morta. */
     scroll-padding-top: 4.5rem;
   }
 
@@ -15,12 +13,9 @@
     color: theme('colors.ink');
     -webkit-font-smoothing: antialiased;
     text-wrap: pretty;
-    /* Rede de seguranca para telas de 320px: uma URL, um e-mail ou uma palavra
-       longa nao consegue mais esticar o container e criar scroll horizontal. */
     overflow-wrap: break-word;
   }
 
-  /* Nenhuma imagem ou midia pode estourar o container que a contem. */
   img,
   svg,
   video {
@@ -35,13 +30,10 @@
     text-wrap: balance;
   }
 
-  /* `list-none` esconde o triangulo do <details> no Chrome e Firefox,
-     mas o Safari precisa deste pseudo-elemento proprio. */
   summary::-webkit-details-marker {
     display: none;
   }
 
-  /* Foco visivel e consistente: o reset do Tailwind remove o outline padrao. */
   :where(a, button, [tabindex]:not([tabindex='-1'])):focus-visible {
     outline: 3px solid theme('colors.secondaryL');
     outline-offset: 3px;
@@ -50,7 +42,6 @@
 }
 
 @layer components {
-  /* Largura de leitura unica para todas as secoes. */
   .container-page {
     width: 100%;
     max-width: 72rem;
@@ -64,8 +55,6 @@
     }
   }
 
-  /* Em monitores muito largos (1536px+) o conteudo respira um pouco mais,
-     sem passar do limite em que a linha de texto fica cansativa de ler. */
   @media (min-width: 1536px) {
     .container-page {
       max-width: 80rem;
@@ -73,8 +62,6 @@
     }
   }
 
-  /* Alvo de toque de no minimo 44x44px, mesmo quando o elemento visivel
-     e pequeno — caso das bolinhas do carrossel. */
   .tap-target {
     position: relative;
   }
@@ -88,7 +75,6 @@
     transform: translate(-50%, -50%);
   }
 
-  /* Link "pular para o conteudo": so aparece ao receber foco por teclado. */
   .skip-link {
     position: absolute;
     left: 50%;
@@ -106,7 +92,6 @@
     transform: translate(-50%, 0);
   }
 
-  /* Trilho com scroll-snap — e o carrossel, sem JS e sem biblioteca. */
   .snap-row {
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
@@ -116,21 +101,10 @@
     display: none;
   }
 
-  /*
-   * O trilho ocupa a largura toda da secao (fora do container de leitura), para
-   * os cards vizinhos so serem cortados na borda da TELA, nunca no meio.
-   * A largura do slide e travada em px: sem isso o card crescia junto com o
-   * monitor e a imagem, que tem proporcao fixa, ficava alta demais para caber.
-   */
   .carousel-track {
-    /* No celular o card e vertical e estreito. */
     --slide: min(88vw, 26rem);
   }
 
-  /* No desktop o card vira horizontal (imagem a esquerda, texto a direita) e
-     fica mais largo. Isso derruba a altura da secao de 762px para ~540px: com
-     762px numa tela de 760 existia UMA posicao de scroll onde tudo aparecia, e
-     qualquer rolada de mouse cortava o titulo ou as bolinhas. */
   @media (min-width: 1024px) {
     .carousel-track {
       --slide: min(92vw, 46rem);
@@ -139,8 +113,6 @@
   .carousel-track > li {
     width: var(--slide);
   }
-  /* Folga que permite ao primeiro e ao ultimo item chegarem ao centro —
-     sem ela o snap encosta na borda e eles nunca centralizam. */
   .carousel-track > li:first-child {
     margin-left: calc((100% - var(--slide)) / 2);
   }
@@ -149,11 +121,6 @@
   }
 }
 
-/* Destaque de quem chegou por link direto (ex.: /habilidades#css a partir de uma
-   etiqueta de tecnologia num projeto).
-   A classe entra por JavaScript (ver useScrollOnNavigate em App.js) porque o
-   `:target` do CSS NAO funciona com o React Router: o pushState muda a URL, mas
-   nao o elemento-alvo do documento, e o seletor nunca casa. */
 @keyframes destacaCard {
   0%,
   15% {
@@ -168,8 +135,6 @@
   animation: destacaCard 2s ease-out;
 }
 
-/* Entrada de pagina a cada troca de aba. Sobe pouco (8px) e de propósito: o
-   suficiente para dar direcao ao movimento sem parecer que a pagina "voou". */
 @keyframes entraPagina {
   from {
     opacity: 0;
@@ -178,14 +143,9 @@
 }
 
 .entra-pagina {
-  /* 1s: mesmo tempo da entrada do Hero (duration-1000), para o site inteiro
-     ter uma cadencia so. */
   animation: entraPagina 1s ease-out;
 }
 
-/* Anel amarelo que "respira" no ponto do selo de localizacao — animacao
-   ambiente, sem depender de hover. 2.6s de ciclo de proposito: bem mais lento
-   que o ping padrao (1s), le como respirar, nao como "online agora". */
 @keyframes respiraPonto {
   0% {
     transform: scale(1);
@@ -210,9 +170,12 @@
   animation: respiraPonto 2.6s ease-out infinite;
 }
 
-/* --- Laila correndo (ui/LailaRunning.js) — ciclo de corrida em CSS puro.
-   Patas em pares diagonais (trote): par A e par B em contra-fase via delay de
-   meio periodo. O corpo quica no dobro da frequencia das patas (a cada passo). */
+/* --- Laila correndo (ui/LailaRunning.js) — trote em CSS puro, patas em
+   pares diagonais girando como pendulo rigido. Duas tentativas mais
+   "realistas" foram feitas e descartadas pelo Victor: caminhada atravessando
+   o palco (forcada) e pernas articuladas com joelho, no estilo de um codepen
+   que ele mandou (nao ficou natural). Este trote e o que ele gostou desde
+   o comeco — voltamos pra ele. */
 @keyframes lailaBob {
   from {
     transform: translateY(0);
@@ -239,10 +202,10 @@
 }
 @keyframes lailaEar {
   from {
-    transform: rotate(-14deg);
+    transform: rotate(-10deg);
   }
   to {
-    transform: rotate(6deg);
+    transform: rotate(7deg);
   }
 }
 @keyframes lailaShadow {
@@ -273,7 +236,8 @@
 }
 .laila-ear {
   transform-box: fill-box;
-  transform-origin: 50% 100%;
+  /* orelha caida: pendura pelo TOPO (onde encosta na cabeca) e balanca solta */
+  transform-origin: 50% 4%;
   animation: lailaEar 0.21s ease-in-out infinite alternate;
   animation-delay: -0.1s;
 }
@@ -283,7 +247,6 @@
   animation: lailaShadow 0.21s ease-in-out infinite alternate;
 }
 
-/* Respeita quem pediu menos animacao no sistema operacional. */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
