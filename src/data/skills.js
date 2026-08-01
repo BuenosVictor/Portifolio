@@ -12,13 +12,6 @@ import rust from '../assets/icons/rust.svg';
 import nodejs from '../assets/icons/nodejs.svg';
 import jest from '../assets/icons/jest.svg';
 
-/**
- * Cada habilidade tem tres camadas, para tres profundidades de leitura:
- *   `plain`  — o que a tecnologia faz, sem jargao. Aparece na home.
- *   `canDo`  — o que eu consigo entregar com ela. Aparece em /habilidades.
- *   `note`   — minha experiencia pessoal aprendendo. Aparece em /habilidades.
- * `usedIn` referencia os `slug` de src/data/projects.js.
- */
 export const dailySkills = [
     {
         name: 'HTML',
@@ -81,8 +74,9 @@ export const dailySkills = [
             'Consumir uma API REST: montar a URL com os parâmetros certos e ler a resposta em JSON',
             'Tratar erro de conexão e erro que a própria API retorna no corpo da resposta, sem quebrar a tela',
             'Mapear os campos que a resposta traz para o que a tela precisa mostrar',
+            'Conversar com o time de backend sobre segurança, privacidade e o jeito certo de tratar os dados que passam pela API',
         ],
-        note: 'Aprendi na prática buscando dados reais de clima no Ventus: o formato da resposta, os erros que a própria API devolve e como traduzir tudo isso para uma tela que faz sentido pra quem não é técnico.',
+        note: 'Aprendi na prática buscando dados reais de clima no Ventus: o formato da resposta, os erros que a própria API devolve e como traduzir tudo isso para uma tela que faz sentido pra quem não é técnico. Hoje faço parte de um time que tem API própria, na Noweb, e converso direto com o backend pra resolver os problemas da melhor forma, sempre pensando em segurança, privacidade e a forma certa de tratar os dados.',
         usedIn: ['ventus'],
     },
     {
@@ -95,7 +89,7 @@ export const dailySkills = [
             'Trabalhar em ramificações separadas sem quebrar o que já está no ar',
             'Publicar projetos direto do repositório',
         ],
-        note: 'Aprendi na correria porque precisava publicar meus projetos. Quando parei para estudar de verdade, vi o quanto é essencial em time.',
+        note: 'Comecei a mexer com Git cedo, pela necessidade de publicar meus projetos, e virou rotina de estudo depois disso. Hoje uso o que qualquer time pede no dia a dia: dar diff antes de commitar, clonar repositório, resolver conflito e trabalhar em branch separada sem bagunçar o que já está no ar.',
         usedIn: ['ventus', 'code-pairs', 'one-piece', 'pokedex'],
     },
     {
@@ -189,11 +183,6 @@ export const learningSkills = [
     },
 ];
 
-/**
- * O diferencial de quem vem de outra area. Um entrevistador nao tecnico avalia
- * exatamente isto — e cada item esta ancorado num fato real da trajetoria,
- * nada generico.
- */
 export const strengths = [
     {
         title: 'Comunicação clara',
@@ -217,7 +206,6 @@ export const strengths = [
     },
 ];
 
-/** Formacao — tudo o que o Victor cita na propria trajetoria. */
 export const journey = [
     {
         title: 'Programador BR',
