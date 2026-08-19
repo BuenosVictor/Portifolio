@@ -15,5 +15,5 @@ export const links = {
     whatsapp: 'https://wa.me/5511951694175',
     github: 'https://github.com/BuenosVictor',
     linkedin: 'https://www.linkedin.com/in/victor-bueno-382054262/',
-    curriculo: 'https://1drv.ms/w/c/1F0ED2D8594CEAFC/AaAzCcASixFEpCd_kkuLaIA?e=eyxdGi',
+    curriculo: '/curriculo-victor-bueno.pdf',
 };
